@@ -94,7 +94,7 @@ function App() {
             style={{ 
               minWidth: '100vw',
               height: '100%',
-              backgroundColor: 'transparent',
+              backgroundColor: 'white',
               position: 'absolute',
               right: '0%'
               
