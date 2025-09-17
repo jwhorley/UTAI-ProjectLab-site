@@ -4,7 +4,7 @@ A modern, interactive landing page for UT Austin's Master's of Artificial Intell
 
 ## Features
 
-- **Interactive Hero Section** with 3D Spline animation
+- **Interactive Hero Section** with animated background
 - **Dynamic Process Flow** with animated elements
 - **Tabbed Benefits Section** with smooth transitions
 - **Expandable FAQ System** with tile-based design
@@ -16,7 +16,6 @@ A modern, interactive landing page for UT Austin's Master's of Artificial Intell
 - **React 18** with TypeScript
 - **Tailwind CSS** for styling
 - **Vite** for development and building
-- **Spline** for 3D animations
 - **Lucide React** for icons
 
 ## Getting Started

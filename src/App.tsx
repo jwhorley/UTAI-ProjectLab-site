@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Spline from '@splinetool/react-spline';
 
 function App() {
   const [activeTab, setActiveTab] = useState('overview');
   const [activeFaq, setActiveFaq] = useState(null);
-  const [splineLoaded, setSplineLoaded] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const splineRef = useRef<any>(null);
 
   useEffect(() => {
     // Handle scroll for animations
@@ -17,18 +14,6 @@ function App() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  // Handle Spline load and apply light/dark mode styling
-  const onSplineLoad = (splineApp: any) => {
-    splineRef.current = splineApp;
-    setSplineLoaded(true);
-    console.log('Spline loaded successfully');
-  };
-
-  const onSplineError = (error: any) => {
-    console.error('Spline error:', error);
-    setSplineLoaded(false);
-  };
 
   const faqData = [
     {
@@ -83,38 +68,13 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
-        <>
-        {/* React Spline Background - Full Width */}
-        <div className="absolute inset-0 w-screen h-full z-0">
-          <Spline
-            scene="https://prod.spline.design/FgZH78cVMuva2ViP/scene.splinecode"
-            onLoad={onSplineLoad}
-            onError={onSplineError}
-            transparent
-            style={{ 
-              minWidth: '100vw',
-              height: '100%',
-              backgroundColor: 'white',
-              position: 'absolute',
-              right: '0%'
-              
-            }}
-          />
+        {/* Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-orange-500/5 to-amber-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
         </div>
-
-        {/* Fallback Background - Only show when Spline is not loaded */}
-        {!splineLoaded && (
-          <div className="absolute inset-0 z-0">
-            <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-orange-500/5 to-amber-500/5 rounded-full blur-3xl"></div>
-            <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
-          </div>
-        )}
-
-        {/* Subtle overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-white/30 via-transparent z-10"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
           <div className="mb-8 pt-10">
@@ -164,7 +124,6 @@ function App() {
             </div>
           </div>
         </div>
-        </>
       </section>
 
       {/* Process Section */}
