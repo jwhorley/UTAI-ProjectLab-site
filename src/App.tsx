@@ -365,7 +365,7 @@ function App() {
                       <div className="w-2 h-2 bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
                       <div>
                         <h3 className="font-bold mb-2 text-gray-900">Access Top Talent</h3>
-                        <p className="text-gray-600">Connect with the next generation of AI/ML experts before they graduate.</p>
+                        <p className="text-gray-600">Connect with the next generation of experts in AI and machine learning before they graduate.</p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-4">
