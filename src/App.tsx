@@ -34,7 +34,7 @@ function App() {
     {
       id: 4,
       question: "What deliverables can companies expect at the end of the program?",
-      answer: "Each project concludes with comprehensive deliverables including: complete source code with documentation, a detailed technical report explaining methodology and results, a presentation summarizing findings and recommendations, deployment instructions or deployed prototypes where applicable, and documentation for future development. Additionally, companies receive evaluation reports on student performance, making it easier to identify potential hires. All intellectual property agreements are established upfront to ensure clear ownership of project outcomes."
+      answer: "Each project concludes with comprehensive deliverables: complete source code with documentation when applicable, a detailed technical report explaining methodology and results, a presentation summarizing findings and recommendations, deployment instructions or deployed prototypes where applicable, and documentation for future development. Additionally, companies receive evaluation reports on student performance, making it easier to identify potential hires. All intellectual property agreements are established upfront to ensure clear ownership of project outcomes."
     }
   ];
 
