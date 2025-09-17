@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Sun, Moon } from 'lucide-react';
 import Spline from '@splinetool/react-spline';
 
 function App() {
@@ -7,7 +6,6 @@ function App() {
   const [activeFaq, setActiveFaq] = useState(null);
   const [splineLoaded, setSplineLoaded] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [lightMode, setLightMode] = useState(false);
   const splineRef = useRef<any>(null);
 
   useEffect(() => {
@@ -20,136 +18,16 @@ function App() {
     };
   }, []);
 
-  // Handle Spline load and apply light/dark mode styling
+  // Handle Spline load
   const onSplineLoad = (splineApp: any) => {
     splineRef.current = splineApp;
     setSplineLoaded(true);
     console.log('Spline loaded successfully');
-    
-    // Apply current mode styling
-    applySplineMode(splineApp, lightMode);
   };
 
   const onSplineError = (error: any) => {
     console.error('Spline error:', error);
     setSplineLoaded(false);
-  };
-
-  // Function to apply light/dark mode to Spline
-  const applySplineMode = (splineApp: any, isLightMode: boolean) => {
-    if (!splineApp) return;
-
-    try {
-      console.log('Applying Spline mode:', isLightMode ? 'light' : 'dark');
-      console.log('Available Spline methods:', Object.keys(splineApp));
-      
-      // Method 1: Try using variables if they exist in the Spline scene
-      if (isLightMode) {
-        splineApp.setVariable?.('lightMode', true);
-        splineApp.setVariable?.('backgroundBrightness', 0.8);
-        splineApp.setVariable?.('ribbonColor', '#FFFFFF');
-        splineApp.setVariable?.('opacity', 0.3);
-      } else {
-        splineApp.setVariable?.('lightMode', false);
-        splineApp.setVariable?.('backgroundBrightness', 0.2);
-        splineApp.setVariable?.('ribbonColor', '#FF6B35');
-        splineApp.setVariable?.('opacity', 1.0);
-      }
-
-      // Method 2: Try to find and modify all objects in the scene
-      if (splineApp.scene && splineApp.scene.children) {
-        console.log('Scene children found:', splineApp.scene.children.length);
-        splineApp.scene.traverse?.((child: any) => {
-          if (child.material) {
-            console.log('Found object with material:', child.name || 'unnamed');
-            if (isLightMode) {
-              // Make objects more transparent and lighter in light mode
-              if (child.material.opacity !== undefined) {
-                child.material.opacity = Math.min(child.material.opacity * 0.4, 1);
-              }
-              if (child.material.color) {
-                // Lighten the color
-                child.material.color.r = Math.min(child.material.color.r + 0.3, 1);
-                child.material.color.g = Math.min(child.material.color.g + 0.3, 1);
-                child.material.color.b = Math.min(child.material.color.b + 0.3, 1);
-              }
-            } else {
-              // Reset to more opaque in dark mode
-              if (child.material.opacity !== undefined) {
-                child.material.opacity = Math.min(child.material.opacity / 0.4, 1);
-              }
-            }
-            child.material.needsUpdate = true;
-          }
-        });
-      }
-
-      // Method 3: Try direct object manipulation by common names
-      const objectsToModify = ['Background', 'Ribbon', 'Particles', 'Main', 'Sphere', 'Cube', 'Mesh'];
-      
-      objectsToModify.forEach(objectName => {
-        const obj = splineApp.findObjectByName?.(objectName);
-        console.log(`Looking for object: ${objectName}`, obj ? 'found' : 'not found');
-        if (obj && obj.material) {
-          if (isLightMode) {
-            // Make much more transparent for light mode
-            obj.material.opacity = Math.min(obj.material.opacity * 0.3, 1);
-            // Try to lighten color if possible
-            if (obj.material.color) {
-              obj.material.color.r = Math.min(obj.material.color.r + 0.4, 1);
-              obj.material.color.g = Math.min(obj.material.color.g + 0.4, 1);
-              obj.material.color.b = Math.min(obj.material.color.b + 0.4, 1);
-            }
-          } else {
-            // Reset opacity for dark mode
-            obj.material.opacity = Math.min(obj.material.opacity / 0.3, 1);
-          }
-          obj.material.needsUpdate = true;
-        }
-      });
-
-      // Method 4: Try to modify the entire scene's environment/lighting
-      if (splineApp.scene) {
-        if (isLightMode) {
-          // Try to add ambient light or modify existing lighting
-          splineApp.scene.background = null; // Remove dark background
-          if (splineApp.scene.environment) {
-            splineApp.scene.environment.intensity = 2.0; // Brighten environment
-          }
-        } else {
-          if (splineApp.scene.environment) {
-            splineApp.scene.environment.intensity = 1.0; // Normal environment
-          }
-        }
-      }
-
-      // Method 5: CSS-based approach as fallback
-      const splineContainer = document.querySelector('canvas');
-      if (splineContainer) {
-        if (isLightMode) {
-          splineContainer.style.opacity = '0.4';
-          splineContainer.style.filter = 'brightness(1.5) contrast(0.8)';
-        } else {
-          splineContainer.style.opacity = '1';
-          splineContainer.style.filter = 'none';
-        }
-      }
-
-      console.log(`Applied ${isLightMode ? 'light' : 'dark'} mode to Spline`);
-    } catch (error) {
-      console.warn('Could not apply mode changes to Spline:', error);
-    }
-  };
-
-  // Apply mode changes when lightMode changes
-  useEffect(() => {
-    if (splineRef.current) {
-      applySplineMode(splineRef.current, lightMode);
-    }
-  }, [lightMode]);
-
-  const toggleLightMode = () => {
-    setLightMode(!lightMode);
   };
 
   const faqData = [
@@ -180,47 +58,22 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen overflow-x-hidden transition-colors duration-300 ${
-      lightMode 
-        ? 'bg-white text-gray-900' 
-        : 'bg-black text-white'
-    }`}>
+    <div className="min-h-screen overflow-x-hidden bg-white text-gray-900">
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full backdrop-blur-md border-b z-50 transition-colors duration-300 ${
-        lightMode
-          ? 'bg-white/90 border-gray-200'
-          : 'bg-black/80 border-gray-800'
-      }`}>
+      <nav className="fixed top-0 w-full backdrop-blur-md border-b z-50 bg-white/90 border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
               <img 
-                src={lightMode 
-                  ? "/HEX_computer_data_science_online.svg" 
-                  : "/knockout_computer_data_science_online.svg"
-                } 
+                src="/HEX_computer_data_science_online.svg" 
                 alt="CDSO Logo" 
                 className="h-12 w-auto object-contain"
               />
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#overview" className={`hover:text-orange-400 transition-colors duration-300 ${
-                lightMode ? 'text-gray-700' : 'text-gray-300'
-              }`}>Overview</a>
-              <a href="#process" className={`hover:text-orange-400 transition-colors duration-300 ${
-                lightMode ? 'text-gray-700' : 'text-gray-300'
-              }`}>Process</a>
-              <a href="#benefits" className={`hover:text-orange-400 transition-colors duration-300 ${
-                lightMode ? 'text-gray-700' : 'text-gray-300'
-              }`}>Benefits</a>
-              <button
-                onClick={toggleLightMode}
-                className={`p-2 rounded-full transition-colors duration-300 ${
-                  lightMode ? 'hover:bg-gray-100' : 'hover:bg-gray-800'
-                }`}
-              >
-                {lightMode ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-              </button>
+              <a href="#overview" className="text-gray-700 hover:text-orange-400 transition-colors duration-300">Overview</a>
+              <a href="#process" className="text-gray-700 hover:text-orange-400 transition-colors duration-300">Process</a>
+              <a href="#benefits" className="text-gray-700 hover:text-orange-400 transition-colors duration-300">Benefits</a>
               <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-black px-6 py-2 rounded-full font-semibold hover:from-orange-400 hover:to-amber-400 transition-all duration-300 transform hover:scale-105">
                 Get Started
               </button>
@@ -232,9 +85,11 @@ function App() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
         {/* React Spline Background - Full Width */}
+        {/* Spline component temporarily disabled until valid URL is provided */}
+        {/* 
         <div className="absolute inset-0 w-full h-full z-0">
           <Spline
-            scene="https://prod.spline.design/C8ddNfDYzztOsIgx/scene.splinecode"
+            scene="***SPLINE HERE***"
             onLoad={onSplineLoad}
             onError={onSplineError}
             style={{
@@ -254,11 +109,8 @@ function App() {
             }}
           />
         </div>
+        */}
 
-        {/* Fallback animated background - shows if Spline doesn't load */}
-        {!splineLoaded && (
-          <div className="absolute inset-0 z-0">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-orange-500/5 to-amber-500/5 rounded-full blur-3xl"></div>
             <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
@@ -266,35 +118,25 @@ function App() {
         )}
 
         {/* Subtle overlay for text readability */}
-        <div className={`absolute inset-0 bg-gradient-to-b via-transparent z-10 ${
-          lightMode 
-            ? 'from-white/20 to-white/30' 
-            : 'from-black/20 to-black/30'
-        }`}></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-white/30 via-transparent z-10"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
           <div className="mb-8 pt-10">
-            <div className={`inline-flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium mb-8 backdrop-blur-sm border ${
-              lightMode
-                ? 'bg-white/70 border-gray-300'
-                : 'bg-gray-900/70 border-gray-700'
-            }`}>
+            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium mb-8 backdrop-blur-sm border bg-white/70 border-gray-300">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <span className={lightMode ? 'text-gray-700' : 'text-gray-300'}>Pilot Program • Enrolling Fall 2025</span>
+              <span className="text-gray-700">Pilot Program • Enrolling Fall 2025</span>
             </div>
           </div>
 
           <h1 className="text-6xl lg:text-8xl font-bold mb-8 leading-tight">
-            <span className={`block drop-shadow-2xl ${lightMode ? 'text-gray-900' : 'text-white'}`}>Bridge</span>
+            <span className="block drop-shadow-2xl text-gray-900">Bridge</span>
             <span className="block bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-2xl">
               AI Talent
             </span>
-            <span className={`block drop-shadow-2xl ${lightMode ? 'text-gray-900' : 'text-white'}`}>& Industry</span>
+            <span className="block drop-shadow-2xl text-gray-900">& Industry</span>
           </h1>
 
-          <p className={`text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed drop-shadow-lg ${
-            lightMode ? 'text-gray-700' : 'text-gray-200'
-          }`}>
+          <p className="text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-700">
             Connect with elite MSAI graduate students for 8-week collaborative AI/ML projects. 
             <br className="hidden lg:block" />
             Solve real challenges while discovering your next hire.
@@ -304,48 +146,28 @@ function App() {
             <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:from-orange-400 hover:to-amber-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25">
               Start Your Project
             </button>
-            <button className={`border px-8 py-4 rounded-full font-semibold hover:border-orange-500 hover:text-orange-400 transition-all duration-300 backdrop-blur-sm ${
-              lightMode
-                ? 'border-gray-400 text-gray-900 bg-black/10'
-                : 'border-gray-300 text-white bg-white/10'
-            }`}>
+            <button className="border border-gray-400 text-gray-900 bg-black/10 px-8 py-4 rounded-full font-semibold hover:border-orange-500 hover:text-orange-400 transition-all duration-300 backdrop-blur-sm">
               Watch Demo
             </button>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            <div className={`text-center backdrop-blur-sm rounded-lg p-4 border ${
-              lightMode
-                ? 'bg-white/30 border-gray-300/50'
-                : 'bg-black/30 border-gray-700/50'
-            }`}>
+            <div className="text-center backdrop-blur-sm rounded-lg p-4 border bg-white/30 border-gray-300/50">
               <div className="text-4xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent mb-2">8</div>
-              <div className={`text-sm uppercase tracking-wider ${lightMode ? 'text-gray-600' : 'text-gray-300'}`}>Week Projects</div>
+              <div className="text-sm uppercase tracking-wider text-gray-600">Week Projects</div>
             </div>
-            <div className={`text-center backdrop-blur-sm rounded-lg p-4 border ${
-              lightMode
-                ? 'bg-white/30 border-gray-300/50'
-                : 'bg-black/30 border-gray-700/50'
-            }`}>
+            <div className="text-center backdrop-blur-sm rounded-lg p-4 border bg-white/30 border-gray-300/50">
               <div className="text-4xl font-bold bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent mb-2">100%</div>
-              <div className={`text-sm uppercase tracking-wider ${lightMode ? 'text-gray-600' : 'text-gray-300'}`}>Graduate Level</div>
+              <div className="text-sm uppercase tracking-wider text-gray-600">Graduate Level</div>
             </div>
-            <div className={`text-center backdrop-blur-sm rounded-lg p-4 border ${
-              lightMode
-                ? 'bg-white/30 border-gray-300/50'
-                : 'bg-black/30 border-gray-700/50'
-            }`}>
+            <div className="text-center backdrop-blur-sm rounded-lg p-4 border bg-white/30 border-gray-300/50">
               <div className="text-4xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent mb-2">$0</div>
-              <div className={`text-sm uppercase tracking-wider ${lightMode ? 'text-gray-600' : 'text-gray-300'}`}>Cost to Companies</div>
+              <div className="text-sm uppercase tracking-wider text-gray-600">Cost to Companies</div>
             </div>
-            <div className={`text-center backdrop-blur-sm rounded-lg p-4 border ${
-              lightMode
-                ? 'bg-white/30 border-gray-300/50'
-                : 'bg-black/30 border-gray-700/50'
-            }`}>
+            <div className="text-center backdrop-blur-sm rounded-lg p-4 border bg-white/30 border-gray-300/50">
               <div className="text-4xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent mb-2">∞</div>
-              <div className={`text-sm uppercase tracking-wider ${lightMode ? 'text-gray-600' : 'text-gray-300'}`}>Potential Value</div>
+              <div className="text-sm uppercase tracking-wider text-gray-600">Potential Value</div>
             </div>
           </div>
         </div>
@@ -355,8 +177,8 @@ function App() {
       <section id="process" className="py-32 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className={`text-5xl font-bold mb-6 ${lightMode ? 'text-gray-900' : 'text-white'}`}>How It Works</h2>
-            <p className={`text-xl max-w-4xl mx-auto leading-relaxed ${lightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+            <h2 className="text-5xl font-bold mb-6 text-gray-900">How It Works</h2>
+            <p className="text-xl max-w-4xl mx-auto leading-relaxed text-gray-600">
               A practicum at the intersection of applied learning and industry solutions. Introducing UT Austin's Master's of Artificial Intelligence Studio
             </p>
           </div>
@@ -418,11 +240,7 @@ function App() {
             <div className="grid lg:grid-cols-3 gap-12 relative z-10">
               {/* Step 1 */}
               <div className="relative group">
-                <div className={`border rounded-2xl p-8 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-500 group-hover:transform group-hover:scale-105 relative overflow-hidden ${
-                  lightMode
-                    ? 'bg-white/50 border-gray-300'
-                    : 'bg-gray-900/50 border-gray-800'
-                }`}>
+                <div className="border rounded-2xl p-8 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-500 group-hover:transform group-hover:scale-105 relative overflow-hidden bg-white/50 border-gray-300">
                   {/* Subtle glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
@@ -432,8 +250,8 @@ function App() {
                       {/* Pulse ring */}
                       <div className="absolute inset-0 rounded-2xl bg-orange-500/20 animate-ping opacity-0 group-hover:opacity-100"></div>
                     </div>
-                    <h3 className={`text-2xl font-bold mb-4 ${lightMode ? 'text-gray-900' : 'text-white'}`}>Submit Challenge</h3>
-                    <p className={`leading-relaxed ${lightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+                    <h3 className="text-2xl font-bold mb-4 text-gray-900">Submit Challenge</h3>
+                    <p className="leading-relaxed text-gray-600">
                       Share your AI/ML problem or use case. We'll work with you to scope a meaningful 8-week project that delivers real value.
                     </p>
                   </div>
@@ -442,11 +260,7 @@ function App() {
 
               {/* Step 2 */}
               <div className="relative group">
-                <div className={`border rounded-2xl p-8 backdrop-blur-sm hover:border-amber-500/50 transition-all duration-500 group-hover:transform group-hover:scale-105 relative overflow-hidden ${
-                  lightMode
-                    ? 'bg-white/50 border-gray-300'
-                    : 'bg-gray-900/50 border-gray-800'
-                }`}>
+                <div className="border rounded-2xl p-8 backdrop-blur-sm hover:border-amber-500/50 transition-all duration-500 group-hover:transform group-hover:scale-105 relative overflow-hidden bg-white/50 border-gray-300">
                   {/* Subtle glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
@@ -456,8 +270,8 @@ function App() {
                       {/* Pulse ring */}
                       <div className="absolute inset-0 rounded-2xl bg-amber-500/20 animate-ping opacity-0 group-hover:opacity-100"></div>
                     </div>
-                    <h3 className={`text-2xl font-bold mb-4 ${lightMode ? 'text-gray-900' : 'text-white'}`}>Get Matched</h3>
-                    <p className={`leading-relaxed ${lightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+                    <h3 className="text-2xl font-bold mb-4 text-gray-900">Get Matched</h3>
+                    <p className="leading-relaxed text-gray-600">
                       We carefully match your project with 4-8 MSAI graduate students whose skills and interests align perfectly with your needs.
                     </p>
                   </div>
@@ -466,11 +280,7 @@ function App() {
 
               {/* Step 3 */}
               <div className="relative group">
-                <div className={`border rounded-2xl p-8 backdrop-blur-sm hover:border-yellow-500/50 transition-all duration-500 group-hover:transform group-hover:scale-105 relative overflow-hidden ${
-                  lightMode
-                    ? 'bg-white/50 border-gray-300'
-                    : 'bg-gray-900/50 border-gray-800'
-                }`}>
+                <div className="border rounded-2xl p-8 backdrop-blur-sm hover:border-yellow-500/50 transition-all duration-500 group-hover:transform group-hover:scale-105 relative overflow-hidden bg-white/50 border-gray-300">
                   {/* Subtle glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
@@ -480,8 +290,8 @@ function App() {
                       {/* Pulse ring */}
                       <div className="absolute inset-0 rounded-2xl bg-yellow-500/20 animate-ping opacity-0 group-hover:opacity-100"></div>
                     </div>
-                    <h3 className={`text-2xl font-bold mb-4 ${lightMode ? 'text-gray-900' : 'text-white'}`}>Collaborate & Deliver</h3>
-                    <p className={`leading-relaxed ${lightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+                    <h3 className="text-2xl font-bold mb-4 text-gray-900">Collaborate & Deliver</h3>
+                    <p className="leading-relaxed text-gray-600">
                       Work closely with your team over 8 weeks. Regular updates, guidance sessions, and a complete solution delivered.
                     </p>
                   </div>
@@ -491,7 +301,7 @@ function App() {
 
             {/* Centered subtitle below the tiles */}
             <div className="text-center mt-16">
-              <p className={`text-lg max-w-3xl mx-auto leading-relaxed ${lightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+              <p className="text-lg max-w-3xl mx-auto leading-relaxed text-gray-600">
                 A streamlined process designed to connect your AI challenges with brilliant minds
               </p>
             </div>
@@ -504,16 +314,12 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="relative group cursor-default">
-              <div className={`border rounded-2xl p-8 backdrop-blur-sm hover:border-orange-500/30 transition-all duration-500 group-hover:transform group-hover:scale-[1.02] relative overflow-hidden ${
-                lightMode
-                  ? 'bg-white/50 border-gray-300'
-                  : 'bg-gray-900/50 border-gray-800'
-              }`}>
+              <div className="border rounded-2xl p-8 backdrop-blur-sm hover:border-orange-500/30 transition-all duration-500 group-hover:transform group-hover:scale-[1.02] relative overflow-hidden bg-white/50 border-gray-300">
                 {/* Subtle glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <div className="relative z-10">
-                  <p className={`text-lg leading-relaxed ${lightMode ? 'text-gray-700' : 'text-gray-300'}`}>
+                  <p className="text-lg leading-relaxed text-gray-700">
                     This collaborative, hands-on practicum pairs companies with talented, UT Austin Master's of Artificial Intelligence students who bring fresh perspectives and innovative thinking to drive meaningful solutions. With access to expert faculty, a robust <a href="https://cdso.utexas.edu/msai" className="text-orange-400 hover:text-orange-300 underline underline-offset-2 transition-colors duration-300 font-medium" target="_blank" rel="noopener noreferrer">curriculum</a>, and a supportive learning environment, our students deliver high-quality outcomes that meet your business needs.
                   </p>
                 </div>
@@ -532,17 +338,13 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className={`text-5xl font-bold mb-8 ${lightMode ? 'text-gray-900' : 'text-white'}`}>Why Partner With Us?</h2>
-              <p className={`text-xl mb-12 ${lightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+              <h2 className="text-5xl font-bold mb-8 text-gray-900">Why Partner With Us?</h2>
+              <p className="text-xl mb-12 text-gray-600">
                 More than project delivery - we're building your future AI talent pipeline.
               </p>
 
               {/* Tab Navigation */}
-              <div className={`flex space-x-1 p-1 rounded-xl mb-8 border ${
-                lightMode
-                  ? 'bg-gray-100/50 border-gray-300'
-                  : 'bg-gray-900/50 border-gray-800'
-              }`}>
+              <div className="flex space-x-1 p-1 rounded-xl mb-8 border bg-gray-100/50 border-gray-300">
                 {[
                   { id: 'overview', label: 'Overview' },
                   { id: 'talent', label: 'Talent' },
@@ -554,9 +356,7 @@ function App() {
                     className={`flex-1 py-3 px-4 rounded-lg font-semibold transition-all duration-300 ${
                       activeTab === tab.id
                         ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-black'
-                        : lightMode 
-                          ? 'text-gray-600 hover:text-gray-900'
-                          : 'text-gray-400 hover:text-white'
+                        : 'text-gray-600 hover:text-gray-900'
                     }`}
                   >
                     {tab.label}
@@ -571,15 +371,15 @@ function App() {
                     <div className="flex items-start space-x-4">
                       <div className="w-2 h-2 bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
                       <div>
-                        <h3 className={`font-bold mb-2 ${lightMode ? 'text-gray-900' : 'text-white'}`}>Try Before You Hire</h3>
-                        <p className={lightMode ? 'text-gray-600' : 'text-gray-400'}>Evaluate student capabilities on real projects before making hiring decisions. Use Studio to bring ML engineering skills into your existing technical teams in a measured way.</p>
+                        <h3 className="font-bold mb-2 text-gray-900">Try Before You Hire</h3>
+                        <p className="text-gray-600">Evaluate student capabilities on real projects before making hiring decisions. Use Studio to bring ML engineering skills into your existing technical teams in a measured way.</p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-4">
                       <div className="w-2 h-2 bg-amber-400 rounded-full mt-3 flex-shrink-0"></div>
                       <div>
-                        <h3 className={`font-bold mb-2 ${lightMode ? 'text-gray-900' : 'text-white'}`}>Zero Financial Risk</h3>
-                        <p className={lightMode ? 'text-gray-600' : 'text-gray-400'}>No cost to participate in our pilot - just provide project guidance and feedback.</p>
+                        <h3 className="font-bold mb-2 text-gray-900">Zero Financial Risk</h3>
+                        <p className="text-gray-600">No cost to participate in our pilot - just provide project guidance and feedback.</p>
                       </div>
                     </div>
                   </div>
@@ -589,15 +389,15 @@ function App() {
                     <div className="flex items-start space-x-4">
                       <div className="w-2 h-2 bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
                       <div>
-                        <h3 className={`font-bold mb-2 ${lightMode ? 'text-gray-900' : 'text-white'}`}>Access Top Talent</h3>
-                        <p className={lightMode ? 'text-gray-600' : 'text-gray-400'}>Connect with the next generation of AI/ML experts before they graduate.</p>
+                        <h3 className="font-bold mb-2 text-gray-900">Access Top Talent</h3>
+                        <p className="text-gray-600">Connect with the next generation of AI/ML experts before they graduate.</p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-4">
                       <div className="w-2 h-2 bg-amber-400 rounded-full mt-3 flex-shrink-0"></div>
                       <div>
-                        <h3 className={`font-bold mb-2 ${lightMode ? 'text-gray-900' : 'text-white'}`}>Graduate-Level Expertise</h3>
-                        <p className={lightMode ? 'text-gray-600' : 'text-gray-400'}>Work with students who have advanced knowledge in cutting-edge AI/ML techniques from one of the first graduate-level AI Masters degree programs in the country.</p>
+                        <h3 className="font-bold mb-2 text-gray-900">Graduate-Level Expertise</h3>
+                        <p className="text-gray-600">Work with students who have advanced knowledge in cutting-edge AI/ML techniques from one of the first graduate-level AI Masters degree programs in the country.</p>
                       </div>
                     </div>
                   </div>
@@ -607,15 +407,15 @@ function App() {
                     <div className="flex items-start space-x-4">
                       <div className="w-2 h-2 bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
                       <div>
-                        <h3 className={`font-bold mb-2 ${lightMode ? 'text-gray-900' : 'text-white'}`}>Solve Real Problems</h3>
-                        <p className={lightMode ? 'text-gray-600' : 'text-gray-400'}>Get actual AI/ML solutions delivered while supporting education and development.</p>
+                        <h3 className="font-bold mb-2 text-gray-900">Solve Real Problems</h3>
+                        <p className="text-gray-600">Get actual AI/ML solutions delivered while supporting education and development.</p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-4">
                       <div className="w-2 h-2 bg-amber-400 rounded-full mt-3 flex-shrink-0"></div>
                       <div>
-                        <h3 className={`font-bold mb-2 ${lightMode ? 'text-gray-900' : 'text-white'}`}>Measurable Impact</h3>
-                        <p className={lightMode ? 'text-gray-600' : 'text-gray-400'}>Receive comprehensive documentation, code, and deployment-ready solutions.</p>
+                        <h3 className="font-bold mb-2 text-gray-900">Measurable Impact</h3>
+                        <p className="text-gray-600">Receive comprehensive documentation, code, and deployment-ready solutions.</p>
                       </div>
                     </div>
                   </div>
@@ -625,34 +425,30 @@ function App() {
 
             {/* Success Story Card */}
             <div className="relative">
-              <div className={`rounded-3xl p-8 backdrop-blur-sm border ${
-                lightMode
-                  ? 'bg-gradient-to-br from-gray-100 to-gray-200 border-gray-300'
-                  : 'bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700'
-              }`}>
+              <div className="rounded-3xl p-8 backdrop-blur-sm border bg-gradient-to-br from-gray-100 to-gray-200 border-gray-300">
                 <div className="flex items-center space-x-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl flex items-center justify-center">
                     <span className="text-black font-bold">FS</span>
                   </div>
                   <div>
-                    <h3 className={`font-bold ${lightMode ? 'text-gray-900' : 'text-white'}`}>Austin, Tx based FinTech Startup</h3>
-                    <p className={`text-sm ${lightMode ? 'text-gray-600' : 'text-gray-400'}`}>Series A Start-up</p>
+                    <h3 className="font-bold text-gray-900">Austin, Tx based FinTech Startup</h3>
+                    <p className="text-sm text-gray-600">Series A Start-up</p>
                   </div>
                 </div>
                 
-                <blockquote className={`italic mb-6 text-lg leading-relaxed ${lightMode ? 'text-gray-700' : 'text-gray-300'}`}>
+                <blockquote className="italic mb-6 text-lg leading-relaxed text-gray-700">
                   "The MSAI team delivered a fraud detection model that exceeded our expectations. 
                   The quality of work was exceptional, and we hired two team members full-time."
                 </blockquote>
                 
-                <div className={`grid grid-cols-2 gap-4 pt-6 border-t ${lightMode ? 'border-gray-300' : 'border-gray-700'}`}>
+                <div className="grid grid-cols-2 gap-4 pt-6 border-t border-gray-300">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-orange-400 mb-1">2</div>
-                    <div className={`text-sm ${lightMode ? 'text-gray-600' : 'text-gray-500'}`}>Full-time Hires</div>
+                    <div className="text-sm text-gray-600">Full-time Hires</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-amber-400 mb-1">95%</div>
-                    <div className={`text-sm ${lightMode ? 'text-gray-600' : 'text-gray-500'}`}>Accuracy Achieved</div>
+                    <div className="text-sm text-gray-600">Accuracy Achieved</div>
                   </div>
                 </div>
               </div>
@@ -667,50 +463,42 @@ function App() {
 
       {/* CTA Section */}
       <section className="py-32 relative">
-        <div className={`absolute inset-0 ${
-          lightMode
-            ? 'bg-gradient-to-r from-orange-500/5 via-amber-500/5 to-yellow-500/5'
-            : 'bg-gradient-to-r from-orange-500/10 via-amber-500/10 to-yellow-500/10'
-        }`}></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-amber-500/5 to-yellow-500/5"></div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className={`text-5xl font-bold mb-6 ${lightMode ? 'text-gray-900' : 'text-white'}`}>Ready to Get Started?</h2>
-          <p className={`text-xl mb-12 ${lightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+          <h2 className="text-5xl font-bold mb-6 text-gray-900">Ready to Get Started?</h2>
+          <p className="text-xl mb-12 text-gray-600">
             Join forward-thinking companies partnering with MSAI Studio to solve AI challenges and discover talent.
           </p>
 
-          <div className={`border rounded-3xl p-8 backdrop-blur-sm ${
-            lightMode
-              ? 'bg-white/50 border-gray-300'
-              : 'bg-gray-900/50 border-gray-800'
-          }`}>
+          <div className="border rounded-3xl p-8 backdrop-blur-sm bg-white/50 border-gray-300">
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="text-left">
-                <h3 className={`text-xl font-bold mb-4 ${lightMode ? 'text-gray-900' : 'text-white'}`}>Contact Information</h3>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">Contact Information</h3>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                    <span className={lightMode ? 'text-gray-700' : 'text-gray-300'}>[placeholder@email.com]</span>
+                    <span className="text-gray-700">[placeholder@email.com]</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
-                    <span className={lightMode ? 'text-gray-700' : 'text-gray-300'}>(512) 123-4567</span>
+                    <span className="text-gray-700">(512) 123-4567</span>
                   </div>
                 </div>
               </div>
               
               <div className="text-left">
-                <h3 className={`text-xl font-bold mb-4 ${lightMode ? 'text-gray-900' : 'text-white'}`}>Next Steps</h3>
-                <div className={`space-y-2 text-sm ${lightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">Next Steps</h3>
+                <div className="space-y-2 text-sm text-gray-600">
                   <div className="flex items-center space-x-3">
-                    <div className={`w-1 h-1 rounded-full ${lightMode ? 'bg-gray-400' : 'bg-gray-500'}`}></div>
+                    <div className="w-1 h-1 rounded-full bg-gray-400"></div>
                     <span>Initial consultation (30 min)</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className={`w-1 h-1 rounded-full ${lightMode ? 'bg-gray-400' : 'bg-gray-500'}`}></div>
+                    <div className="w-1 h-1 rounded-full bg-gray-400"></div>
                     <span>Project scoping session</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className={`w-1 h-1 rounded-full ${lightMode ? 'bg-gray-400' : 'bg-gray-500'}`}></div>
+                    <div className="w-1 h-1 rounded-full bg-gray-400"></div>
                     <span>Team matching & kickoff</span>
                   </div>
                 </div>
@@ -728,8 +516,8 @@ function App() {
       <section id="faq" className="py-32 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className={`text-5xl font-bold mb-6 ${lightMode ? 'text-gray-900' : 'text-white'}`}>Frequently Asked Questions</h2>
-            <p className={`text-xl max-w-3xl mx-auto ${lightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+            <h2 className="text-5xl font-bold mb-6 text-gray-900">Frequently Asked Questions</h2>
+            <p className="text-xl max-w-3xl mx-auto text-gray-600">
               Get answers to common questions about the MSAI Studio program and partnership process
             </p>
           </div>
@@ -746,11 +534,9 @@ function App() {
                 <div
                   className={`border rounded-2xl p-6 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-500 relative overflow-hidden ${
                     activeFaq === faq.id
-                      ? `border-orange-500/70 transform scale-[1.02] ${
-                          lightMode ? 'bg-white/70' : 'bg-gray-900/70'
-                        }`
+                      ? 'border-orange-500/70 transform scale-[1.02] bg-white/70'
                       : 'group-hover:transform group-hover:scale-105'
-                  } ${lightMode ? 'bg-white/50 border-gray-300' : 'bg-gray-900/50 border-gray-800'}`}
+                  } bg-white/50 border-gray-300`}
                 >
                   {/* Glow effect when active */}
                   <div
@@ -762,16 +548,14 @@ function App() {
                   <div className="relative z-10">
                     {/* Question Header */}
                     <div className="flex items-start justify-between mb-4">
-                      <h3 className={`text-lg font-bold pr-4 leading-tight ${lightMode ? 'text-gray-900' : 'text-white'}`}>
+                      <h3 className="text-lg font-bold pr-4 leading-tight text-gray-900">
                         {faq.question}
                       </h3>
                       <div
                         className={`flex-shrink-0 w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
                           activeFaq === faq.id
                             ? 'border-orange-500 bg-orange-500 rotate-45'
-                            : `group-hover:border-orange-400 ${
-                                lightMode ? 'border-gray-400' : 'border-gray-600'
-                              }`
+                            : 'group-hover:border-orange-400 border-gray-400'
                         }`}
                       >
                         <div
@@ -795,8 +579,8 @@ function App() {
                           : 'max-h-0 opacity-0'
                       }`}
                     >
-                      <div className={`pt-4 border-t ${lightMode ? 'border-gray-300/50' : 'border-gray-700/50'}`}>
-                        <p className={`leading-relaxed ${lightMode ? 'text-gray-700' : 'text-gray-300'}`}>
+                      <div className="pt-4 border-t border-gray-300/50">
+                        <p className="leading-relaxed text-gray-700">
                           {faq.answer}
                         </p>
                       </div>
@@ -805,7 +589,7 @@ function App() {
                     {/* Subtle indicator when closed */}
                     {activeFaq !== faq.id && (
                       <div className="mt-2">
-                        <p className={`text-sm ${lightMode ? 'text-gray-500' : 'text-gray-500'}`}>Click to expand</p>
+                        <p className="text-sm text-gray-500">Click to expand</p>
                       </div>
                     )}
                   </div>
@@ -823,7 +607,7 @@ function App() {
 
           {/* Additional CTA */}
           <div className="text-center mt-16">
-            <p className={`mb-6 ${lightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+            <p className="mb-6 text-gray-600">
               Have more questions? We're here to help.
             </p>
             <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-black px-8 py-3 rounded-full font-semibold hover:from-orange-400 hover:to-amber-400 transition-all duration-300 transform hover:scale-105">
@@ -834,24 +618,17 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className={`border-t py-12 ${
-        lightMode
-          ? 'border-gray-200'
-          : 'border-gray-800'
-      }`}>
+      <footer className="border-t py-12 border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <img 
-                src={lightMode 
-                  ? "/HEX_computer_data_science_online.svg" 
-                  : "/knockout_computer_data_science_online.svg"
-                } 
+                src="/HEX_computer_data_science_online.svg" 
                 alt="CDSO Logo" 
                 className="h-8 w-auto object-contain"
               />
             </div>
-            <div className={`text-sm ${lightMode ? 'text-gray-600' : 'text-gray-500'}`}>
+            <div className="text-sm text-gray-600">
               © 2025 The University of Texas at Austin | Bridging AI talent and industry needs.
             </div>
           </div>
