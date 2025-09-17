@@ -448,21 +448,35 @@ function App() {
           <div className="border rounded-3xl p-8 backdrop-blur-sm bg-white/50 border-gray-300">
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="text-left">
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Contact Information</h3>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">Project Onboarding</h3>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                    <span className="text-gray-700">[placeholder@email.com]</span>
+                    <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
+                    <span className="text-gray-700">Join an Info Session</span>
                   </div>
                   <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                    <span className="text-gray-700">Submit a Project Proposal</span>
+                  </div>
+                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
-                    <span className="text-gray-700">(512) 123-4567</span>
+                    <span className="text-gray-700">Join an Info Session</span>
+                  </div>
+                  </div>
+                   <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                    <span className="text-gray-700">Receive Project Feedback</span>
+                  </div>
+                  </div>
+                   <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-amber-300 rounded-full"></div>
+                    <span className="text-gray-700">Pick Student Team</span>
                   </div>
                 </div>
               </div>
               
               <div className="text-left">
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Next Steps</h3>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">Key Dates</h3>
                 <div className="space-y-2 text-sm text-gray-600">
                   <div className="flex items-center space-x-3">
                     <div className="w-1 h-1 rounded-full bg-gray-400"></div>
