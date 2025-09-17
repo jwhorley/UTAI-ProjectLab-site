@@ -85,13 +85,10 @@ function App() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
         {/* React Spline Background - Full Width */}
-        {/* Spline component temporarily disabled until valid URL is provided */}
-        {/* 
-        {/* Spline component temporarily disabled until valid URL is provided */}
-        {/* 
+        {/* Spline component */}
         <div className="absolute inset-0 w-full h-full z-0">
           <Spline
-            scene="***SPLINE HERE***"
+            scene="https://prod.spline.design/FgZH78cVMuva2ViP/scene.splinecode"
             onLoad={onSplineLoad}
             onError={onSplineError}
             style={{
@@ -111,8 +108,6 @@ function App() {
             }}
           />
         </div>
-        */}
-        */}
 
         {/* Fallback background when Spline is not loaded */}
         {!splineLoaded && (
