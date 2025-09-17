@@ -68,6 +68,35 @@ function App() {
                 child.material.opacity = Math.min(child.material.opacity * 0.4, 1);
               }
               if (child.material.color) {
+                child.material.color.multiplyScalar(1.5);
+              }
+            } else {
+              // Restore original colors and opacity for dark mode
+              if (child.material.opacity !== undefined) {
+                child.material.opacity = Math.min(child.material.opacity / 0.4, 1);
+              }
+              if (child.material.color) {
+                child.material.color.multiplyScalar(0.8);
+              }
+            }
+          }
+        });
+      }
+    } catch (error) {
+      console.error('Error applying Spline mode:', error);
+    }
+  };
+
+  const toggleLightMode = () => {
+    const newMode = !lightMode;
+    setLightMode(newMode);
+    
+    // Apply to Spline if loaded
+    if (splineRef.current) {
+      applySplineMode(splineRef.current, newMode);
+    }
+  };
+
   const faqData = [
     {
       id: 1,
@@ -177,11 +206,15 @@ function App() {
         */}
         */}
 
+        {/* Fallback animated background when Spline is not loaded */}
+        {(!splineLoaded && (
+          <div className="absolute inset-0 overflow-hidden z-0">
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-orange-500/5 to-amber-500/5 rounded-full blur-3xl"></div>
             <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
           </div>
-        )}
+        ))}
 
         {/* Subtle overlay for text readability */}
         <div className={`absolute inset-0 bg-gradient-to-b via-transparent z-10 ${
