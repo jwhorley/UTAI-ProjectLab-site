@@ -7,8 +7,12 @@ function App() {
   const [scrollY, setScrollY] = useState(0);
 
   // Spline event handlers
-  const onSplineLoad = () => {};
-  const onSplineError = () => {};
+  const onSplineLoad = () => {
+    console.log('Spline scene loaded successfully');
+  };
+  const onSplineError = (error) => {
+    console.error('Spline scene failed to load:', error);
+  };
 
   useEffect(() => {
     // Handle scroll for animations
