@@ -149,5 +149,7 @@
       0 0 15px rgba(251, 146, 60, 0.4),
       0 0 20px rgba(251, 146, 60, 0.3),
       0 0 35px rgba(251, 146, 60, 0.2);
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
   }
 }
