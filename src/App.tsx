@@ -124,8 +124,8 @@ function App() {
               <div className="text-sm uppercase tracking-wider text-gray-600">Students</div>
             </div>
             <div className="text-center backdrop-blur-sm rounded-lg p-4 border bg-white/30 border-gray-300/50">
-              <div className="text-4xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent mb-2">∞</div>
-              <div className="text-sm uppercase tracking-wider text-gray-600">Potential Value</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent mb-2">≈ 200</div>
+              <div className="text-sm uppercase tracking-wider text-gray-600">Hours Project Size</div>
             </div>
           </div>
         </div>
