@@ -139,6 +139,7 @@ function App() {
             <p className="text-xl max-w-4xl mx-auto leading-relaxed text-gray-700">
               This collaborative, hands-on practicum pairs companies with talented students from UT Austin’s Master's of Artificial Intelligence program who bring fresh perspectives and innovative thinking to drive meaningful solutions.
             </p>
+            <br className="hidden lg:block" />
             <p className="text-xl max-w-4xl mx-auto leading-relaxed text-gray-700">
               We focus on practical, industry-relevant projects that can deliver meaningful results within 8 weeks. This includes computer vision applications, natural language processing tasks, predictive modeling, recommendation systems, and data analysis projects.
             </p>
