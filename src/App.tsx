@@ -91,6 +91,7 @@ function App() {
             scene="https://prod.spline.design/FgZH78cVMuva2ViP/scene.splinecode"
             onLoad={onSplineLoad}
             onError={onSplineError}
+            transparent
             style={{ 
               minWidth: '100vw',
               height: '100%',
