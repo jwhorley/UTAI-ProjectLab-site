@@ -193,7 +193,7 @@ function App() {
       <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
         <>
         {/* React Spline Background - Full Width */}
-        <div className="absolute inset-0 w-full h-full z-0">
+        <div className="absolute inset-0 w-screen h-full z-0">
           <Spline
             scene="https://prod.spline.design/FgZH78cVMuva2ViP/scene.splinecode"
             onLoad={onSplineLoad}
