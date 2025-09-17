@@ -90,10 +90,11 @@ function App() {
             <span className="block bg-gradient-to-r from-orange-800 via-amber-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-2xl">
               Project Lab
             </span>
-
           </h1>
-
           <p className="text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-700">
+            Industry Sponsored AI/ML Projects for Online Master’s Students 
+            <br className="hidden lg:block" />
+          <p className="text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-900">
             Connect with elite MSAI graduate students for 8-week collaborative AI/ML projects. 
             <br className="hidden lg:block" />
             Solve real challenges while discovering your next hire.
