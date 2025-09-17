@@ -143,10 +143,22 @@ function App() {
             <p className="text-xl max-w-4xl mx-auto leading-relaxed text-gray-700">
               We focus on practical, industry-relevant projects that can deliver meaningful results within 8 weeks. This includes computer vision applications, natural language processing tasks, predictive modeling, recommendation systems, and data analysis projects.
             </p>
-            <br className="hidden lg:block" />
-            <p className="text-xl max-w-4xl mx-auto leading-relaxed text-gray-700">
-             With access to expert faculty, a robust curriculum, and a supportive learning environment, our students deliver high-quality outcomes that meet your business needs.
-            </p>
+            
+            {/* Styled box for the two paragraphs */}
+            <div className="relative max-w-5xl mx-auto mt-16">
+              <div className="rounded-3xl p-8 backdrop-blur-sm border bg-gradient-to-br from-gray-100 to-gray-200 border-gray-300">
+                <p className="text-xl leading-relaxed text-gray-700 mb-6">
+                  We focus on practical, industry-relevant projects that can deliver meaningful results within 8 weeks. This includes computer vision applications, natural language processing tasks, predictive modeling, recommendation systems, and data analysis projects.
+                </p>
+                <p className="text-xl leading-relaxed text-gray-700">
+                  With access to expert faculty, a robust curriculum, and a supportive learning environment, our students deliver high-quality outcomes that meet your business needs.
+                </p>
+              </div>
+              
+              {/* Floating Elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-orange-500/20 to-amber-500/20 rounded-full blur-xl"></div>
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 rounded-full blur-xl"></div>
+            </div>
           </div>
 
           <div className="relative">
