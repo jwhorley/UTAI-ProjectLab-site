@@ -497,7 +497,7 @@ function App() {
             </div>
             
             <button className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-black py-4 px-8 rounded-2xl font-bold text-lg hover:from-orange-400 hover:to-amber-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25">
-              Schedule a Consultation
+             Join an Info Session
             </button>
           </div>
         </div>
