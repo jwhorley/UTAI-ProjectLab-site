@@ -106,7 +106,7 @@ function App() {
 
           <h1 className="text-6xl lg:text-8xl font-bold mb-8 leading-tight">
             <span className="block drop-shadow-2xl text-gray-900">AI</span>
-            <span className="block bg-gradient-to-r from-orange-500 via-orange-400 to-amber-400 bg-clip-text text-transparent drop-shadow-2xl filter drop-shadow-[0_0_20px_rgba(251,146,60,0.8)] drop-shadow-[0_0_40px_rgba(251,146,60,0.4)]">
+            <span className="block bg-gradient-to-r from-orange-500 via-orange-400 to-amber-400 text-stroke: 1px black bg-clip-text text-transparent drop-shadow-2xl filter drop-shadow-[0_0_20px_rgba(251,146,60,0.8)] drop-shadow-[0_0_40px_rgba(251,146,60,0.4)]">
               Project Lab
             </span>
           </h1>
