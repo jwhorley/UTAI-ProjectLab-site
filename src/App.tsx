@@ -199,7 +199,7 @@ function App() {
             onLoad={onSplineLoad}
             onError={onSplineError}
             style={{ 
-              width: '100%', 
+              minWidth: '100vw',
               height: '100%',
               backgroundColor: 'transparent',
               position: 'absolute',
