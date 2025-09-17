@@ -224,9 +224,9 @@ function App() {
                       {/* Pulse ring */}
                       <div className="absolute inset-0 rounded-2xl bg-orange-500/20 animate-ping opacity-0 group-hover:opacity-100"></div>
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-gray-900">Submit Challenge</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-gray-900">Submit Your Challenge</h3>
                     <p className="leading-relaxed text-gray-600">
-                      Share your AI/ML problem or use case. We'll work with you to scope a meaningful 8-week project that delivers real value.
+                      Share information about the AI or machine learning challenge you’re looking to solve. We'll work with you to scope a meaningful 8-week project that delivers real value.
                     </p>
                   </div>
                 </div>
@@ -246,7 +246,7 @@ function App() {
                     </div>
                     <h3 className="text-2xl font-bold mb-4 text-gray-900">Get Matched</h3>
                     <p className="leading-relaxed text-gray-600">
-                      We carefully match your project with 4-8 MSAI graduate students whose skills and interests align perfectly with your needs.
+                      Review and select a team of 4-6 graduate students interested in your project whose skills and interests align with your needs.
                     </p>
                   </div>
                 </div>
@@ -266,7 +266,7 @@ function App() {
                     </div>
                     <h3 className="text-2xl font-bold mb-4 text-gray-900">Collaborate & Deliver</h3>
                     <p className="leading-relaxed text-gray-600">
-                      Work closely with your team over 8 weeks. Regular updates, guidance sessions, and a complete solution delivered.
+                      Commit 1-2 hours per week over the next 8 weeks to guide your project team. Get regular updates, join guidance sessions, and receive an actionable AI solution at the end.
                     </p>
                   </div>
                 </div>
