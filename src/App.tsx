@@ -136,7 +136,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold mb-6 text-gray-900">How It Works</h2>
-            <p className="text-xl max-w-4xl mx-auto leading-relaxed text-gray-600">
+            <p className="text-xl max-w-4xl mx-auto leading-relaxed text-gray-700">
               This collaborative, hands-on practicum pairs companies with talented students from UT Austin’s Master's of Artificial Intelligence program who bring fresh perspectives and innovative thinking to drive meaningful solutions.
             </p>
           </div>
