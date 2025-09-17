@@ -85,7 +85,6 @@ function App() {
               position: 'absolute',
               top: '0',
               left: '50%',
-              transform: 'translateX(-50%)',
               zIndex: '1',
               backgroundColor: 'transparent'
             }}
@@ -603,20 +602,4 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <img 
-                src="/HEX_computer_data_science_online.svg"
-                alt="CDSO Logo" 
-                className="h-8 w-auto object-contain"
-              />
-            </div>
-            <div className="text-sm text-gray-600">
-              © 2025 The University of Texas at Austin | Bridging AI talent and industry needs.
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-}
-
-export default App;
+              <img
