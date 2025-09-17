@@ -79,7 +79,7 @@ function App() {
       {/* Hero Section */}
       <section id="overview" className="relative py-32">
         {/* Spline Background */}
-        <div className="absolute inset-0 z-10 opacity-80">
+        <div className="absolute inset-0 z-10 opacity-70">
           <Spline
             scene="https://prod.spline.design/FgZH78cVMuva2ViP/scene.splinecode"
             onLoad={onSplineLoad}
