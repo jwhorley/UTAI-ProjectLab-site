@@ -313,7 +313,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-5xl font-bold mb-8 text-gray-900">Why Partner With Us?</h2>
+              <h2 className="text-5xl font-bold mb-8 text-gray-900">Benifits of AI Project Lab</h2>
               <p className="text-xl mb-12 text-gray-600">
                 More than project delivery - we're building your future AI talent pipeline.
               </p>
@@ -347,7 +347,7 @@ function App() {
                       <div className="w-2 h-2 bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
                       <div>
                         <h3 className="font-bold mb-2 text-gray-900">Try Before You Hire</h3>
-                        <p className="text-gray-600">Evaluate student capabilities on real projects before making hiring decisions. Use Studio to bring ML engineering skills into your existing technical teams in a measured way.</p>
+                        <p className="text-gray-600">Evaluate student capabilities on real projects before making hiring decisions. Use AI Works to bring ML engineering skills into your existing technical teams in a measured way.</p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-4">
