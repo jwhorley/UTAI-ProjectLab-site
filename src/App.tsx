@@ -274,7 +274,10 @@ function App() {
             </div>
 
             {/* Centered subtitle below the tiles */}
-            <div className="text-center mt-16">
+            <div className="text-center mt-16 relative">
+              {/* Orange orb - same as hero section */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/10 to-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+              
               <p className="text-3xl lg:text-4xl font-semibold mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-800">
                 UT's AI Project Lab provides you with a streamlined process designed to connect your AI challenges with top students at the cutting edge of AI research.
               </p>
