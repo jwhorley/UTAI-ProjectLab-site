@@ -68,33 +68,88 @@ function App() {
                 child.material.opacity = Math.min(child.material.opacity * 0.4, 1);
               }
               if (child.material.color) {
-                child.material.color.multiplyScalar(1.5);
+                // Lighten the color
+                child.material.color.r = Math.min(child.material.color.r + 0.3, 1);
+                child.material.color.g = Math.min(child.material.color.g + 0.3, 1);
+                child.material.color.b = Math.min(child.material.color.b + 0.3, 1);
               }
             } else {
-              // Restore original colors and opacity for dark mode
+              // Reset to more opaque in dark mode
               if (child.material.opacity !== undefined) {
                 child.material.opacity = Math.min(child.material.opacity / 0.4, 1);
               }
-              if (child.material.color) {
-                child.material.color.multiplyScalar(0.8);
-              }
             }
+            child.material.needsUpdate = true;
           }
         });
       }
+
+      // Method 3: Try direct object manipulation by common names
+      const objectsToModify = ['Background', 'Ribbon', 'Particles', 'Main', 'Sphere', 'Cube', 'Mesh'];
+      
+      objectsToModify.forEach(objectName => {
+        const obj = splineApp.findObjectByName?.(objectName);
+        console.log(`Looking for object: ${objectName}`, obj ? 'found' : 'not found');
+        if (obj && obj.material) {
+          if (isLightMode) {
+            // Make much more transparent for light mode
+            obj.material.opacity = Math.min(obj.material.opacity * 0.3, 1);
+            // Try to lighten color if possible
+            if (obj.material.color) {
+              obj.material.color.r = Math.min(obj.material.color.r + 0.4, 1);
+              obj.material.color.g = Math.min(obj.material.color.g + 0.4, 1);
+              obj.material.color.b = Math.min(obj.material.color.b + 0.4, 1);
+            }
+          } else {
+            // Reset opacity for dark mode
+            obj.material.opacity = Math.min(obj.material.opacity / 0.3, 1);
+          }
+          obj.material.needsUpdate = true;
+        }
+      });
+
+      // Method 4: Try to modify the entire scene's environment/lighting
+      if (splineApp.scene) {
+        if (isLightMode) {
+          // Try to add ambient light or modify existing lighting
+          splineApp.scene.background = null; // Remove dark background
+          if (splineApp.scene.environment) {
+            splineApp.scene.environment.intensity = 2.0; // Brighten environment
+          }
+        } else {
+          if (splineApp.scene.environment) {
+            splineApp.scene.environment.intensity = 1.0; // Normal environment
+          }
+        }
+      }
+
+      // Method 5: CSS-based approach as fallback
+      const splineContainer = document.querySelector('canvas');
+      if (splineContainer) {
+        if (isLightMode) {
+          splineContainer.style.opacity = '0.4';
+          splineContainer.style.filter = 'brightness(1.5) contrast(0.8)';
+        } else {
+          splineContainer.style.opacity = '1';
+          splineContainer.style.filter = 'none';
+        }
+      }
+
+      console.log(`Applied ${isLightMode ? 'light' : 'dark'} mode to Spline`);
     } catch (error) {
-      console.error('Error applying Spline mode:', error);
+      console.warn('Could not apply mode changes to Spline:', error);
     }
   };
 
-  const toggleLightMode = () => {
-    const newMode = !lightMode;
-    setLightMode(newMode);
-    
-    // Apply to Spline if loaded
+  // Apply mode changes when lightMode changes
+  useEffect(() => {
     if (splineRef.current) {
-      applySplineMode(splineRef.current, newMode);
+      applySplineMode(splineRef.current, lightMode);
     }
+  }, [lightMode]);
+
+  const toggleLightMode = () => {
+    setLightMode(!lightMode);
   };
 
   const faqData = [
@@ -177,13 +232,9 @@ function App() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
         {/* React Spline Background - Full Width */}
-        {/* Spline component temporarily disabled until valid URL is provided */}
-        {/* 
-        {/* Spline component temporarily disabled until valid URL is provided */}
-        {/* 
         <div className="absolute inset-0 w-full h-full z-0">
           <Spline
-            scene="***SPLINE HERE***"
+            scene="https://prod.spline.design/C8ddNfDYzztOsIgx/scene.splinecode"
             onLoad={onSplineLoad}
             onError={onSplineError}
             style={{
@@ -203,18 +254,16 @@ function App() {
             }}
           />
         </div>
-        */}
-        */}
 
-        {/* Fallback animated background when Spline is not loaded */}
-        {(!splineLoaded && (
-          <div className="absolute inset-0 overflow-hidden z-0">
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
+        {/* Fallback animated background - shows if Spline doesn't load */}
+        {!splineLoaded && (
+          <div className="absolute inset-0 z-0">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-orange-500/5 to-amber-500/5 rounded-full blur-3xl"></div>
             <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
           </div>
-        ))}
+        )}
 
         {/* Subtle overlay for text readability */}
         <div className={`absolute inset-0 bg-gradient-to-b via-transparent z-10 ${
