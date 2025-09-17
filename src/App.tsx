@@ -128,7 +128,7 @@ function App() {
       if (splineContainer) {
         if (isLightMode) {
           splineContainer.style.opacity = '0.4';
-          splineContainer.style.filter = 'brightness(1.5) contrast(0.9)';
+          splineContainer.style.filter = 'brightness(1.2) contrast(0.3)';
         } else {
           splineContainer.style.opacity = '1';
           splineContainer.style.filter = 'none';
