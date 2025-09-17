@@ -120,7 +120,7 @@ function App() {
         */}
         */}
 
-        {/* Fallback Background */}
+        {/* Fallback background when Spline is not loaded */}
         {!splineLoaded && (
           <div className="absolute inset-0 z-0">
             <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -128,6 +128,7 @@ function App() {
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-orange-500/5 to-amber-500/5 rounded-full blur-3xl"></div>
             <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
           </div>
+        )}
 
         {/* Subtle overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-white/30 via-transparent z-10"></div>
