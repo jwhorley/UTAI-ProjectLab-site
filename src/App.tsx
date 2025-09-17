@@ -203,7 +203,8 @@ function App() {
               height: '100%',
               backgroundColor: 'transparent',
               position: 'absolute',
-              display: 'block'
+              display: 'block', 
+              right: '10%'
               
             }}
           />
