@@ -207,6 +207,7 @@ function App() {
               maxHeight: 'none',
               display: 'block',
               position: 'absolute',
+              left: '50%',
               top: '0',
               zIndex: '1',
               backgroundColor: 'transparent'
