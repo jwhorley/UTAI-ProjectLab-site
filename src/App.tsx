@@ -202,7 +202,9 @@ function App() {
               width: '100%', 
               height: '100%',
               backgroundColor: 'transparent',
-              position: 'absolute'
+              position: 'absolute',
+              display: 'block'
+              
             }}
           />
         </div>
