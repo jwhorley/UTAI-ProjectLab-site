@@ -477,16 +477,20 @@ function App() {
                 <h3 className="text-xl font-bold mb-4 text-gray-900">Key Dates</h3>
                 <div className="space-y-2 text-sm text-gray-600">
                   <div className="flex items-center space-x-3">
-                    <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                    <span>Initial consultation (30 min)</span>
+                    <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                    <span>Partner Info Session: Oct. 6th and 9th, 2025</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                    <span>Project scoping session</span>
+                    <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                    <span>Proposal Due Date: Nov 14th, 2025</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                    <span>Team matching & kickoff</span>
+                    <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                    <span>Matching Process: Dec 1st – Jan 16th</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                    <span>Kickoff 8-week Pilot Project: Jan 26th, 2026 </span>
                   </div>
                 </div>
               </div>
