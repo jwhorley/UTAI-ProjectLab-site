@@ -1,9 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Spline from '@splinetool/react-spline';
 
 function App() {
   const [activeTab, setActiveTab] = useState('overview');
   const [activeFaq, setActiveFaq] = useState(null);
   const [scrollY, setScrollY] = useState(0);
+
+  // Spline event handlers
+  const onSplineLoad = () => {};
+  const onSplineError = () => {};
 
   useEffect(() => {
     // Handle scroll for animations
@@ -69,6 +74,16 @@ function App() {
 
       {/* Hero Section */}
       <section id="overview" className="relative py-32">
+        {/* Spline Background */}
+        <div className="fixed inset-0 z-10">
+          <Spline
+            scene="https://prod.spline.design/FgZH78cVMuva2ViP/scene.splinecode"
+            onLoad={onSplineLoad}
+            onError={onSplineError}
+            style={{ width: '100%', height: '100%' }}
+          />
+        </div>
+
         {/* Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
