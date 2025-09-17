@@ -96,7 +96,7 @@ function App() {
             <br className="hidden lg:block" />
           </h2>
           <p className="text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-900">
-            Connect with elite MSAI graduate students for 8-week collaborative AI/ML projects. 
+            Connect with graduate students for 8-week collaborative projects in artificial intelligence and machine learning. 
             <br className="hidden lg:block" />
             Solve real challenges while discovering your next hire.
           </p>
