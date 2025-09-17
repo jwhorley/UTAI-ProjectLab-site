@@ -198,20 +198,10 @@ function App() {
             scene="https://prod.spline.design/FgZH78cVMuva2ViP/scene.splinecode"
             onLoad={onSplineLoad}
             onError={onSplineError}
-            style={{
-              width: '100vw',
-              height: '100vh',
-              minWidth: '100vw',
-              minHeight: '100vh',
-              maxWidth: 'none',
-              maxHeight: 'none',
-              display: 'block',
-              position: 'absolute',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              top: '0',
-              zIndex: '1',
-              backgroundColor: 'transparent'
+            style={{ 
+              width: '100%', 
+              height: '100%',
+              backgroundColor: 'transparent',
             }}
           />
         </div>
