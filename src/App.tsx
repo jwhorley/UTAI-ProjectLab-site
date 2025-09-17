@@ -91,10 +91,10 @@ function App() {
               Project Lab
             </span>
           </h1>
-          <p className="text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-700">
+          <h2 className="text-3xl lg:text-4xl font-semibold mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-800">
             Industry Sponsored AI/ML Projects for Online Master’s Students 
             <br className="hidden lg:block" />
-          </p>
+          </h2>
           <p className="text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-900">
             Connect with elite MSAI graduate students for 8-week collaborative AI/ML projects. 
             <br className="hidden lg:block" />
