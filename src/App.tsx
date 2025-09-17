@@ -353,8 +353,8 @@ function App() {
                     <div className="flex items-start space-x-4">
                       <div className="w-2 h-2 bg-amber-400 rounded-full mt-3 flex-shrink-0"></div>
                       <div>
-                        <h3 className="font-bold mb-2 text-gray-900">Zero Financial Risk</h3>
-                        <p className="text-gray-600">No cost to participate in our pilot - just provide project guidance and feedback.</p>
+                        <h3 className="font-bold mb-2 text-gray-900">Pilot AI Solutions on Real Work Objectives</h3>
+                        <p className="text-gray-600">You can test-drive AI/ML solutions without heavy internal investment. Provide the challenge and feedback, and our students deliver creative results you can put to work.</p>
                       </div>
                     </div>
                   </div>
