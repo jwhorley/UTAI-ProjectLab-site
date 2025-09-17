@@ -1,6 +1,6 @@
-# MSAI Studio
+# MSAI AI Project Lab
 
-A modern, interactive landing page for UT Austin's Master's of Artificial Intelligence Studio program. This platform connects industry partners with graduate students for collaborative 8-week AI/ML projects.
+A modern, interactive landing page for UT Austin's Master's of Artificial Intelligence AI Project Lab pilot program. This platform connects industry partners with graduate students for collaborative 8-week AI/ML projects.
 
 ## Features
 
@@ -60,7 +60,7 @@ The built files will be in the `dist/` directory, ready for deployment to any st
 
 ## Contributing
 
-This project is part of UT Austin's MSAI program. For questions or contributions, please contact the MSAI Studio team.
+This project is part of UT Austin's MSAI program. For questions or contributions, please contact the UTCS Machine Learning Lab
 
 ## License
 
