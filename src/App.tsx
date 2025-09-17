@@ -261,16 +261,9 @@ function App() {
             Solve real challenges while discovering your next hire.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+          <div className="flex justify-center mb-16">
             <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:from-orange-400 hover:to-amber-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25">
               Start Your Project
-            </button>
-            <button className={`border px-8 py-4 rounded-full font-semibold hover:border-orange-500 hover:text-orange-400 transition-all duration-300 backdrop-blur-sm ${
-              lightMode
-                ? 'border-gray-400 text-gray-900 bg-black/10'
-                : 'border-gray-300 text-white bg-white/10'
-            }`}>
-              Watch Demo
             </button>
           </div>
 
