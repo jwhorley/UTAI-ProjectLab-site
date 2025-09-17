@@ -95,12 +95,12 @@ function App() {
             Industry Sponsored AI/ML Projects for Online Master’s Students 
             <br className="hidden lg:block" />
           </h2>
-          <p className="text-lg lg:text-xl mb-12 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-700">
-            Solve real challenges while discovering your next hire.
-          </p>
           <p className="text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-900">
             Connect with graduate students for 8-week collaborative projects in artificial intelligence and machine learning. 
             <br className="hidden lg:block" />
+          </p>
+          <p className="text-lg lg:text-xl mb-12 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-700">
+            Solve real challenges while discovering your next hire.
           </p>
 
           <div className="flex justify-center mb-16">
