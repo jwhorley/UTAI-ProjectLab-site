@@ -276,7 +276,7 @@ function App() {
             {/* Centered subtitle below the tiles */}
             <div className="text-center mt-16">
               <p className="text-3xl lg:text-4xl font-semibold mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-800">
-                AI Studio provides you with a streamlined process designed to connect your AI challenges with top students at the cutting edge of AI research.
+                UT's AI Project Lab provides you with a streamlined process designed to connect your AI challenges with top students at the cutting edge of AI research.
               </p>
             </div>
           </div>
