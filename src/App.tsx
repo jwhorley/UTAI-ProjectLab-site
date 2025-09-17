@@ -137,7 +137,7 @@ function App() {
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold mb-6 text-gray-900">How It Works</h2>
             <p className="text-xl max-w-4xl mx-auto leading-relaxed text-gray-600">
-              A practicum at the intersection of applied learning and industry solutions. Introducing UT Austin's Master's of Artificial Intelligence Studio
+              This collaborative, hands-on practicum pairs companies with talented students from UT Austin’s Master's of Artificial Intelligence program who bring fresh perspectives and innovative thinking to drive meaningful solutions.
             </p>
           </div>
 
