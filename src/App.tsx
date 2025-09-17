@@ -94,6 +94,7 @@ function App() {
           <p className="text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-700">
             Industry Sponsored AI/ML Projects for Online Master’s Students 
             <br className="hidden lg:block" />
+          </p>
           <p className="text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-900">
             Connect with elite MSAI graduate students for 8-week collaborative AI/ML projects. 
             <br className="hidden lg:block" />
