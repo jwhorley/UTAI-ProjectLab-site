@@ -208,7 +208,6 @@ function App() {
               display: 'block',
               position: 'absolute',
               top: '0',
-              transform: 'translateX(-50%)',
               zIndex: '1',
               backgroundColor: 'transparent'
             }}
