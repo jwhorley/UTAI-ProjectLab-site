@@ -68,6 +68,7 @@ function App() {
       </nav>
 
       {/* Hero Section */}
+      <section id="overview" className="relative py-32">
         {/* Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
