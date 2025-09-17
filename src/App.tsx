@@ -71,29 +71,44 @@ function App() {
                 child.material.color.multiplyScalar(1.5);
               }
             } else {
-              // Restore original opacity and color for dark mode
+              // Restore original appearance in dark mode
               if (child.material.opacity !== undefined) {
                 child.material.opacity = Math.min(child.material.opacity / 0.4, 1);
               }
               if (child.material.color) {
-                child.material.color.multiplyScalar(0.8);
+                child.material.color.multiplyScalar(0.67);
               }
             }
           }
         });
       }
+
+      // Method 3: Try to modify lighting
+      if (splineApp.scene) {
+        splineApp.scene.traverse?.((child: any) => {
+          if (child.isLight) {
+            console.log('Found light:', child.type);
+            if (isLightMode) {
+              child.intensity = Math.min(child.intensity * 0.5, 1);
+            } else {
+              child.intensity = Math.min(child.intensity * 2, 2);
+            }
+          }
+        });
+      }
+
     } catch (error) {
       console.error('Error applying Spline mode:', error);
     }
   };
 
+  // Toggle light mode and apply to Spline
   const toggleLightMode = () => {
-    const newMode = !lightMode;
-    setLightMode(newMode);
+    const newLightMode = !lightMode;
+    setLightMode(newLightMode);
     
-    // Apply to Spline if loaded
     if (splineRef.current) {
-      applySplineMode(splineRef.current, newMode);
+      applySplineMode(splineRef.current, newLightMode);
     }
   };
 
@@ -176,14 +191,11 @@ function App() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+        <>
         {/* React Spline Background - Full Width */}
-        {/* Spline component temporarily disabled until valid URL is provided */}
-        {/* 
-        {/* Spline component temporarily disabled until valid URL is provided */}
-        {/* 
         <div className="absolute inset-0 w-full h-full z-0">
           <Spline
-            scene="***SPLINE HERE***"
+            scene="https://prod.spline.design/FgZH78cVMuva2ViP/scene.splinecode"
             onLoad={onSplineLoad}
             onError={onSplineError}
             style={{
@@ -203,17 +215,16 @@ function App() {
             }}
           />
         </div>
-        */}
-        */}
 
-        {/* Fallback animated background when Spline is not loaded */}
+        {/* Fallback Background - Only show when Spline is not loaded */}
         {!splineLoaded && (
-          <div className="absolute inset-0 overflow-hidden z-0">
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute inset-0 z-0">
+            <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-orange-500/5 to-amber-500/5 rounded-full blur-3xl"></div>
             <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
           </div>
+        )}
 
         {/* Subtle overlay for text readability */}
         <div className={`absolute inset-0 bg-gradient-to-b via-transparent z-10 ${
@@ -299,6 +310,7 @@ function App() {
             </div>
           </div>
         </div>
+        </>
       </section>
 
       {/* Process Section */}
