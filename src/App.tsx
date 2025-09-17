@@ -114,7 +114,7 @@ function App() {
           // Try to add ambient light or modify existing lighting
           splineApp.scene.background = null; // Remove dark background
           if (splineApp.scene.environment) {
-            splineApp.scene.environment.intensity = 2.0; // Brighten environment
+            splineApp.scene.environment.intensity = 1.5; // Brighten environment
           }
         } else {
           if (splineApp.scene.environment) {
