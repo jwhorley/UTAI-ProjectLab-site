@@ -275,8 +275,8 @@ function App() {
 
             {/* Centered subtitle below the tiles */}
             <div className="text-center mt-16">
-              <p className="text-lg max-w-3xl mx-auto leading-relaxed text-gray-600">
-                A streamlined process designed to connect your AI challenges with brilliant minds
+              <p className="text-xl lg:text-2xl mb-4 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-900">
+                AI Studio provides you with a streamlined process designed to connect your AI challenges with top students at the cutting edge of AI research.
               </p>
             </div>
           </div>
