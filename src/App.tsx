@@ -239,18 +239,18 @@ function App() {
             <div className="grid lg:grid-cols-3 gap-12 relative z-10">
               {/* Step 1 */}
               <div className="relative group">
-                <div className="border rounded-2xl p-8 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-500 group-hover:transform group-hover:scale-105 relative overflow-hidden bg-white/50 border-gray-300">
+                <div className="border rounded-2xl p-8 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-500 group-hover:transform group-hover:scale-105 relative overflow-hidden bg-white/50 border-gray-300 h-full flex flex-col">
                   {/* Subtle glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl mb-6 group-hover:shadow-lg group-hover:shadow-orange-500/25 transition-all duration-300 relative">
                       <span className="text-2xl font-bold text-black">1</span>
                       {/* Pulse ring */}
                       <div className="absolute inset-0 rounded-2xl bg-orange-500/20 animate-ping opacity-0 group-hover:opacity-100"></div>
                     </div>
                     <h3 className="text-2xl font-bold mb-4 text-gray-900">Submit Your Challenge</h3>
-                    <p className="leading-relaxed text-gray-600">
+                    <p className="leading-relaxed text-gray-600 flex-grow">
                       Share information about the AI or machine learning challenge you’re looking to solve. We'll work with you to scope a meaningful 8-week project that delivers real value.
                     </p>
                   </div>
@@ -259,18 +259,18 @@ function App() {
 
               {/* Step 2 */}
               <div className="relative group">
-                <div className="border rounded-2xl p-8 backdrop-blur-sm hover:border-amber-500/50 transition-all duration-500 group-hover:transform group-hover:scale-105 relative overflow-hidden bg-white/50 border-gray-300">
+                <div className="border rounded-2xl p-8 backdrop-blur-sm hover:border-amber-500/50 transition-all duration-500 group-hover:transform group-hover:scale-105 relative overflow-hidden bg-white/50 border-gray-300 h-full flex flex-col">
                   {/* Subtle glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-2xl mb-6 group-hover:shadow-lg group-hover:shadow-amber-500/25 transition-all duration-300 relative">
                       <span className="text-2xl font-bold text-black">2</span>
                       {/* Pulse ring */}
                       <div className="absolute inset-0 rounded-2xl bg-amber-500/20 animate-ping opacity-0 group-hover:opacity-100"></div>
                     </div>
                     <h3 className="text-2xl font-bold mb-4 text-gray-900">Get Matched</h3>
-                    <p className="leading-relaxed text-gray-600">
+                    <p className="leading-relaxed text-gray-600 flex-grow">
                       Review and select a team of 4-6 graduate students interested in your project whose skills and interests align with your needs.
                     </p>
                   </div>
@@ -279,18 +279,18 @@ function App() {
 
               {/* Step 3 */}
               <div className="relative group">
-                <div className="border rounded-2xl p-8 backdrop-blur-sm hover:border-yellow-500/50 transition-all duration-500 group-hover:transform group-hover:scale-105 relative overflow-hidden bg-white/50 border-gray-300">
+                <div className="border rounded-2xl p-8 backdrop-blur-sm hover:border-yellow-500/50 transition-all duration-500 group-hover:transform group-hover:scale-105 relative overflow-hidden bg-white/50 border-gray-300 h-full flex flex-col">
                   {/* Subtle glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl mb-6 group-hover:shadow-lg group-hover:shadow-yellow-500/25 transition-all duration-300 relative">
                       <span className="text-2xl font-bold text-black">3</span>
                       {/* Pulse ring */}
                       <div className="absolute inset-0 rounded-2xl bg-yellow-500/20 animate-ping opacity-0 group-hover:opacity-100"></div>
                     </div>
                     <h3 className="text-2xl font-bold mb-4 text-gray-900">Collaborate & Deliver</h3>
-                    <p className="leading-relaxed text-gray-600">
+                    <p className="leading-relaxed text-gray-600 flex-grow">
                       Commit 1-2 hours per week over the next 8 weeks to guide your project team. Get regular updates, join guidance sessions, and receive an actionable AI solution at the end.
                     </p>
                   </div>
