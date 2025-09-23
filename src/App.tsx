@@ -467,7 +467,7 @@ function App() {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-5xl font-bold mb-6 text-gray-900">Ready to Get Started?</h2>
           <p className="text-xl mb-12 text-gray-600">
-            Join forward-thinking companies partnering with AI Works to solve AI challenges and discover talent. The project submission deadline for Spring 2026 is [INSERT DATE]. For more information, join an information session.
+            Join forward-thinking companies partnering with AI Project Lab to solve AI challenges and discover talent. The project submission deadline for Spring 2026 is [INSERT DATE]. For more information, join an information session.
           </p>
 
           <div className="border rounded-3xl p-8 backdrop-blur-sm bg-white/50 border-gray-300">
@@ -482,11 +482,6 @@ function App() {
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                     <span className="text-gray-700">Submit a Project Proposal</span>
-                  </div>
-                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                    <span className="text-gray-700">Join an Info Session</span>
-                  </div>
                    <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
                     <span className="text-gray-700">Receive Project Feedback</span>
