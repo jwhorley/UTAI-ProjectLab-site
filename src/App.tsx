@@ -498,19 +498,19 @@ function App() {
                 <h3 className="text-xl font-bold mb-4 text-gray-900">Key Dates</h3>
                 <div className="space-y-3 text-gray-700">
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                    <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
                     <span>Partner Info Session: <strong>Oct. 6th and 9th, 2025</strong></span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                     <span>Proposal Due Date: <strong>Nov 14th, 2025</strong></span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                    <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
                     <span>Matching Process: <strong>Dec 1st – Jan 16th</strong></span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                    <div className="w-2 h-2 bg-amber-400 rounded-full""></div>
                     <span>Kickoff 8-week Pilot Project: <strong>Jan 26th, 2026</strong></span>
                   </div>
                 </div>
