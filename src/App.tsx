@@ -52,8 +52,8 @@ function App() {
     },
     {
       id: 6,
-      question: "What kind of talent is accepted into the CDSO’s master’s programs?",
-      answer: "With UT’s AI Project Lab, you’ll gain access to some of the most capable technical professionals in the country. Admission into our graduate programs is highly competitive. Accepted students hold technical bachelor’s degrees, generally in computer science, statistics, mathematics, engineering, or a related field, and demonstrate strong-to-exceptional academic performance with a minimum 3.0+ GPA in upper-division or graduate courses. Our students typically place in the 80th percentile or higher on standardized testing and demonstrate strong quantitative strength."
+      question: "What are the types of backgrounds that master’s students in the CDSO program have?",
+      answer: "An answer will go here. Lorem ipsum blah blah blah. Placeholder text for the 6th FAQ question."
     }
   ];
 
