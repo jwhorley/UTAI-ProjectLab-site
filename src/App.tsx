@@ -38,7 +38,7 @@ function App() {
     {
       id: 3,
       question: "What level of involvement is expected from partner companies?",
-      answer: "We expect active but manageable involvement from our industry partners. This includes an initial 2-hour project scoping session, weekly 1-hour check-ins during the 8-week period, and providing domain expertise when needed. Companies should designate a technical point of contact who can answer questions, provide feedback on progress, and guide strategic decisions. We handle all project management and student coordination, so your time investment is focused on high-value guidance rather than administrative tasks."
+      answer: "We expect active but manageable involvement from our industry partners. This includes an initial 2-hour project scoping session, weekly 1-hour check-ins during the 8-week period and providing domain expertise when needed. Companies should designate a technical point of contact who can answer questions, provide feedback on progress, and guide strategic decisions. We handle all project management and student coordination, so your time investment is focused on high-value guidance rather than administrative tasks."
     },
     {
       id: 4,
