@@ -111,9 +111,7 @@ function App() {
             </span>
           </h1>
           <h2 className="text-3xl lg:text-4xl font-semibold mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-800">
-            Industry Sponsored AI/ML Projects 
-            <br className="hidden lg:block" />
-            for Online Master’s Students 
+            Industry Sponsored AI/ML Projects \n for Online Master’s Students 
             <br className="hidden lg:block" />
           </h2>
           <p className="text-xl lg:text-2xl mb-4 max-w-4xl mx-auto leading-relaxed drop-shadow-lg text-gray-900">
