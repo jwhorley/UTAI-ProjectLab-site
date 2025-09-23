@@ -44,9 +44,14 @@ function App() {
       id: 4,
       question: "What deliverables can companies expect at the end of the program?",
       answer: "Each project concludes with comprehensive deliverables: complete source code with documentation when applicable, a detailed technical report explaining methodology and results, a presentation summarizing findings and recommendations, deployment instructions or deployed prototypes where applicable, and documentation for future development. Additionally, companies receive evaluation reports on student performance, making it easier to identify potential hires. All intellectual property agreements are established upfront to ensure clear ownership of project outcomes."
-    }
+    },
     {
       id: 5,
+      question: "What kind of talent is accepted into the CDSO’s master’s programs?",
+      answer: "With UT’s AI Project Lab, you’ll gain access to some of the most capable technical professionals in the country. Admission into our graduate programs is highly competitive. Accepted students hold technical bachelor’s degrees, generally in computer science, statistics, mathematics, engineering, or a related field, and demonstrate strong-to-exceptional academic performance with a minimum 3.0+ GPA in upper-division or graduate courses. Our students typically place in the 80th percentile or higher on standardized testing and demonstrate strong quantitative strength."
+    },
+    {
+      id: 6,
       question: "What kind of talent is accepted into the CDSO’s master’s programs?",
       answer: "With UT’s AI Project Lab, you’ll gain access to some of the most capable technical professionals in the country. Admission into our graduate programs is highly competitive. Accepted students hold technical bachelor’s degrees, generally in computer science, statistics, mathematics, engineering, or a related field, and demonstrate strong-to-exceptional academic performance with a minimum 3.0+ GPA in upper-division or graduate courses. Our students typically place in the 80th percentile or higher on standardized testing and demonstrate strong quantitative strength."
     }
