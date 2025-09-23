@@ -128,7 +128,7 @@ function App() {
               <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:from-orange-400 hover:to-amber-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25">
                 Submit a Project
               </button>
-              <button className="backdrop-blur-sm border bg-white/30 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/50 hover:border-gray-400 transition-all duration-300 transform hover:scale-105">
+              <button className="rounded-3xl px-8 py-4 backdrop-blur-sm border bg-gradient-to-br from-gray-100 to-gray-200 border-gray-300 text-gray-700 font-bold text-lg hover:from-gray-200 hover:to-gray-300 transition-all duration-300 transform hover:scale-105">
                 Join an Info Session
               </button>
             </div>
