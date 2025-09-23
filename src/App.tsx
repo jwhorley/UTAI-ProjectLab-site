@@ -510,7 +510,7 @@ function App() {
                     <span>Matching Process: <strong>Dec 1st – Jan 16th</strong></span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-amber-400 rounded-full""></div>
+                    <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
                     <span>Kickoff 8-week Pilot Project: <strong>Jan 26th, 2026</strong></span>
                   </div>
                 </div>
