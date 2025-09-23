@@ -125,7 +125,7 @@ function App() {
 
           <div className="flex justify-center mb-16">
             <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:from-orange-400 hover:to-amber-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25">
-              Start Your Project
+              Submit a Project
             </button>
           </div>
 
