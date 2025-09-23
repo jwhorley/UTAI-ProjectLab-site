@@ -32,7 +32,7 @@ function App() {
     },
     {
       id: 2,
-      question: "What is 'primary research' and why is it not included in the scope for work on any student project?",
+      question: "What is 'primary research' and why is it not included in the scope of work on any student project?",
       answer: "Primary research is data obtained first-hand, or identifying and collecting necessary data, rather than relying on a pre-existing data sample. Project sponsors will be required to provide all data believed to be necessary to address the primary problem statement for the project. This is to ensure a successful and meaningful student experience; students may build upon the initial dataset and conduct secondary research, but it is not required."
     },
     {
@@ -372,7 +372,7 @@ function App() {
                       <div className="w-2 h-2 bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
                       <div>
                         <h3 className="font-bold mb-2 text-gray-900">Try Before You Hire</h3>
-                        <p className="text-gray-600">Evaluate student capabilities on real projects before making hiring decisions. Use AI Works to bring ML engineering skills into your existing technical teams in a measured way.</p>
+                        <p className="text-gray-600">Evaluate student capabilities on real projects before making hiring decisions. Use AI Project Lab to bring ML engineering skills into your existing technical teams in a measured way.</p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-4">
@@ -530,7 +530,7 @@ function App() {
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold mb-6 text-gray-900">Frequently Asked Questions</h2>
             <p className="text-xl max-w-3xl mx-auto text-gray-600">
-              Get answers to common questions about the MSAI Studio program and partnership process
+              Get answers to common questions about the AI Project Lab and partnership process
             </p>
           </div>
 
