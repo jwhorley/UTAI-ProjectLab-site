@@ -5,6 +5,7 @@ function App() {
   const [activeTab, setActiveTab] = useState('overview');
   const [activeFaq, setActiveFaq] = useState(null);
   const [scrollY, setScrollY] = useState(0);
+  const [splineKey, setSplineKey] = useState(0);
 
   // Spline event handlers
   const onSplineLoad = () => {
@@ -17,10 +18,19 @@ function App() {
   useEffect(() => {
     // Handle scroll for animations
     const handleScroll = () => setScrollY(window.scrollY);
+    
+    // Handle window resize for Spline responsiveness
+    const handleResize = () => {
+      // Force Spline to re-render on resize by changing key
+      setSplineKey(prev => prev + 1);
+    };
+    
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -89,12 +99,18 @@ function App() {
       {/* Hero Section */}
       <section id="overview" className="relative py-32">
         {/* Spline Background */}
-        <div className="absolute inset-0 z-10 opacity-70">
+        <div className="absolute inset-0 z-10 opacity-70 w-full h-full">
           <Spline
+            key={splineKey}
             scene="https://prod.spline.design/FgZH78cVMuva2ViP/scene.splinecode"
             onLoad={onSplineLoad}
             onError={onSplineError}
-            style={{ width: '100%', height: '100%' }}
+            style={{ 
+              width: '100%', 
+              height: '100%',
+              minHeight: '100vh',
+              objectFit: 'cover'
+            }}
           />
         </div>
 
