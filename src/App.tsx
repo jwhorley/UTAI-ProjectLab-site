@@ -302,25 +302,6 @@ function App() {
                 UT's AI Project Lab provides you with a streamlined process designed to connect your AI challenges with top students at the cutting edge of AI research.
               </p>
 
-              {/* Combined Academic Context */}
-              <div className="max-w-5xl mx-auto mt-12">
-                <div className="relative group cursor-default">
-                  <div className="border rounded-2xl p-8 backdrop-blur-sm hover:border-orange-500/30 transition-all duration-500 group-hover:transform group-hover:scale-[1.02] relative overflow-hidden bg-white/50 border-gray-300">
-                    {/* Subtle glow effect on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    <div className="relative z-10">
-                      <p className="text-lg leading-relaxed text-gray-700">
-                        This collaborative, hands-on practicum pairs companies with talented, UT Austin Master's of Artificial Intelligence students who bring fresh perspectives and innovative thinking to drive meaningful solutions. With access to expert faculty, a robust <a href="https://cdso.utexas.edu/msai" className="text-orange-400 hover:text-orange-300 underline underline-offset-2 transition-colors duration-300 font-medium" target="_blank" rel="noopener noreferrer">curriculum</a>, and a supportive learning environment, our students deliver high-quality outcomes that meet your business needs.
-                      </p>
-                    </div>
-
-                    {/* Floating accent elements */}
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-orange-500/20 to-amber-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
-                    <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -329,7 +310,7 @@ function App() {
 
 
       {/* Interactive Benefits Section */}
-      <section id="benefits" className="py-32 relative">
+      <section id="benefits" className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
