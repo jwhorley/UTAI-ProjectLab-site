@@ -464,7 +464,7 @@ function App() {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-5xl font-bold mb-6 text-gray-900">Ready to Get Started?</h2>
           <p className="text-xl mb-12 text-gray-600">
-            Join forward-thinking companies partnering with AI Project Lab to solve AI challenges and discover talent. The project submission deadline for Spring 2026 is [INSERT DATE]. For more information, join an information session.
+            Join forward-thinking companies partnering with AI Project Lab to solve AI challenges and discover talent. The project submission deadline for Spring 2026 is November 14th, 2025. For more information, join an information session.
           </p>
 
           <div className="border rounded-3xl p-8 backdrop-blur-sm bg-white/50 border-gray-300">
