@@ -172,7 +172,7 @@ function App() {
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold mb-6 text-gray-900">How It Works</h2>
             <p className="text-xl max-w-4xl mx-auto leading-relaxed text-gray-700">
-              This collaborative, hands-on practicum pairs companies with talented students from UT Austin’s Master's of Artificial Intelligence program who bring fresh perspectives and innovative thinking to drive meaningful solutions.
+              This collaborative, hands-on practicum pairs companies with talented students from UT Austin’s Master's of Artificial Intelligence program who bring fresh perspectives and innovative thinking to drive meaningful solutions. With access to expert faculty, a robust <a href="https://cdso.utexas.edu/msai" className="text-orange-400 hover:text-orange-300 underline underline-offset-2 transition-colors duration-300 font-medium" target="_blank" rel="noopener noreferrer">curriculum</a>, and a supportive learning environment, our students deliver high-quality outcomes that meet your business needs.
             </p>
             
             {/* Styled box for the two paragraphs */}
