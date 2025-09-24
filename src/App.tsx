@@ -63,9 +63,7 @@ function App() {
     {
       id: 6,
       question: "What are the types of backgrounds that master's students in the CDSO program have?",
-      answer: "Most of our students bring real-world industry experience and are currently working as technical professionals while completing their master’s. Many are advancing their careers at Fortune 500 and global tech companies including Amazon, Microsoft, Google, Apple, IBM, Dell, and Capital One. Others are driving innovation in finance, defense and aerospace, healthcare, and energy. You’ll also find entrepreneurs and independent technologists using their degrees to accelerate ventures of their own. 
-
-Our students include AI/ML specialists, data science and analytics leaders, software and systems engineers, entrepreneurs and innovators. In short, these are not hypothetical future engineers; they are already proven professionals from companies you know, now leveling up with advanced training from one of the world’s top computer science institutions. They are ready to help you take on high-impact projects and deliver results"
+      answer: "Most of our students bring real-world industry experience and are currently working as technical professionals while completing their master’s. Many are advancing their careers at Fortune 500 and global tech companies including Amazon, Microsoft, Google, Apple, IBM, Dell, and Capital One. Others are driving innovation in finance, defense and aerospace, healthcare, and energy. You’ll also find entrepreneurs and independent technologists using their degrees to accelerate ventures of their own. Our students include AI/ML specialists, data science and analytics leaders, software and systems engineers, entrepreneurs and innovators. In short, these are not hypothetical future engineers; they are already proven professionals from companies you know, now leveling up with advanced training from one of the world’s top computer science institutions. They are ready to help you take on high-impact projects and deliver results."
     }
   ];
 
