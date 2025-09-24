@@ -175,21 +175,6 @@ function App() {
               This collaborative, hands-on practicum pairs companies with talented students from UT Austin’s Master's of Artificial Intelligence program who bring fresh perspectives and innovative thinking to drive meaningful solutions. With access to expert faculty, a robust <a href="https://cdso.utexas.edu/msai" className="text-orange-400 hover:text-orange-300 underline underline-offset-2 transition-colors duration-300 font-medium" target="_blank" rel="noopener noreferrer">curriculum</a>, and a supportive learning environment, our students deliver high-quality outcomes that meet your business needs.
             </p>
             
-            {/* Styled box for the two paragraphs */}
-            <div className="relative max-w-5xl mx-auto mt-16">
-              <div className="rounded-3xl p-8 backdrop-blur-sm border bg-gradient-to-br from-gray-100 to-gray-200 border-gray-300">
-                <p className="text-xl leading-relaxed text-gray-700 mb-6">
-                  We focus on practical, industry-relevant projects that can deliver meaningful results within 8 weeks. This includes computer vision applications, natural language processing tasks, predictive modeling, recommendation systems, and data analysis projects.
-                </p>
-                <p className="text-xl leading-relaxed text-gray-700">
-                  With access to expert faculty, a robust curriculum, and a supportive learning environment, our students deliver high-quality outcomes that meet your business needs.
-                </p>
-              </div>
-              
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-orange-500/20 to-amber-500/20 rounded-full blur-xl"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 rounded-full blur-xl"></div>
-            </div>
           </div>
 
           <div className="relative">
