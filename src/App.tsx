@@ -57,12 +57,12 @@ function App() {
     },
     {
       id: 5,
-      question: "What kind of talent is accepted into the CDSO’s master’s programs?",
-      answer: "With UT’s AI Project Lab, you’ll gain access to some of the most capable technical professionals in the country. Admission into our graduate programs is highly competitive. Accepted students hold technical bachelor’s degrees, generally in computer science, statistics, mathematics, engineering, or a related field, and demonstrate strong-to-exceptional academic performance with a minimum 3.0+ GPA in upper-division or graduate courses. Our students typically place in the 80th percentile or higher on standardized testing and demonstrate strong quantitative strength."
+      question: "What kind of talent is accepted into the CDSO's master's programs?",
+      answer: "With UT's AI Project Lab, you'll gain access to some of the most capable technical professionals in the country. Admission into our graduate programs is highly competitive. Accepted students hold technical bachelor's degrees, generally in computer science, statistics, mathematics, engineering, or a related field, and demonstrate strong-to-exceptional academic performance with a minimum 3.0+ GPA in upper-division or graduate courses. Our students typically place in the 80th percentile or higher on standardized testing and demonstrate strong quantitative strength."
     },
     {
       id: 6,
-      question: "What are the types of backgrounds that master’s students in the CDSO program have?",
+      question: "What are the types of backgrounds that master's students in the CDSO program have?",
       answer: "An answer will go here. Lorem ipsum blah blah blah. Placeholder text for the 6th FAQ question."
     }
   ];
@@ -99,7 +99,7 @@ function App() {
       {/* Hero Section */}
       <section id="overview" className="relative py-32">
         {/* Spline Background */}
-        <div className="absolute inset-0 z-10 opacity-70 w-full h-full">
+        <div className="absolute inset-0 z-10 opacity-70 w-full h-full overflow-hidden spline-container">
           <Spline
             key={splineKey}
             scene="https://prod.spline.design/FgZH78cVMuva2ViP/scene.splinecode"
@@ -109,7 +109,14 @@ function App() {
               width: '100%', 
               height: '100%',
               minHeight: '100vh',
-              objectFit: 'cover'
+              minWidth: '100vw',
+              objectFit: 'cover',
+              objectPosition: 'center',
+              transformOrigin: 'center center',
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%) scale(1.1)'
             }}
           />
         </div>
@@ -188,7 +195,7 @@ function App() {
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold mb-6 text-gray-900">How It Works</h2>
             <p className="text-xl max-w-4xl mx-auto leading-relaxed text-gray-700">
-              This collaborative, hands-on practicum pairs companies with talented students from UT Austin’s Master's of Artificial Intelligence program who bring fresh perspectives and innovative thinking to drive meaningful solutions. With access to expert faculty, a robust <a href="https://cdso.utexas.edu/msai" className="text-orange-400 hover:text-orange-300 underline underline-offset-2 transition-colors duration-300 font-medium" target="_blank" rel="noopener noreferrer">curriculum</a>, and a supportive learning environment, our students deliver high-quality outcomes that meet your business needs.
+              This collaborative, hands-on practicum pairs companies with talented students from UT Austin's Master's of Artificial Intelligence program who bring fresh perspectives and innovative thinking to drive meaningful solutions. With access to expert faculty, a robust <a href="https://cdso.utexas.edu/msai" className="text-orange-400 hover:text-orange-300 underline underline-offset-2 transition-colors duration-300 font-medium" target="_blank" rel="noopener noreferrer">curriculum</a>, and a supportive learning environment, our students deliver high-quality outcomes that meet your business needs.
             </p>
             
           </div>
@@ -262,7 +269,7 @@ function App() {
                     </div>
                     <h3 className="text-2xl font-bold mb-4 text-gray-900">Submit Your Challenge</h3>
                     <p className="leading-relaxed text-gray-600 flex-grow">
-                      Share information about the AI or machine learning challenge you’re looking to solve. We'll work with you to scope a meaningful 8-week project that delivers real value.
+                      Share information about the AI or machine learning challenge you're looking to solve. We'll work with you to scope a meaningful 8-week project that delivers real value.
                     </p>
                   </div>
                 </div>
