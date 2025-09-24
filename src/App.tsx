@@ -497,6 +497,13 @@ function App() {
              Join an Info Session
             </button>
           </div>
+          
+          <p className="mb-6 text-gray-600 text-center mt-8">
+            Have questions? Refer to our FAQ below or reach out to us at{' '}
+            <a href="mailto:aiprojectlab@utexas.edu" className="text-orange-500 hover:underline">
+              aiprojectlab@utexas.edu
+            </a>
+          </p>
         </div>
       </section>
 
