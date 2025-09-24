@@ -152,6 +152,16 @@
       6px 6px 0px #78350f;
   }
 
+  .text-3d-neon {
+    text-shadow: 
+      1px 1px 0px #fb923c,
+      2px 2px 0px #f97316,
+      3px 3px 0px #ea580c,
+      4px 4px 0px #dc2626,
+      5px 5px 0px #c2410c,
+      6px 6px 0px #a16207;
+  }
+
   .neon-glow {
     text-shadow: 
       0 0 5px rgba(251, 146, 60, 0.8),
