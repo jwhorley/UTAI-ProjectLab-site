@@ -424,7 +424,7 @@ function App() {
             {/* Success Story Card */}
             <div className="relative overflow-hidden">
               <img 
-                src="public/placeholder_image.jpg" 
+                src="/placeholder_image.jpg" 
                 alt="girl at a desk" 
                 className="w-full h-full object-cover rounded-3xl min-h-[400px]"
                 onError={(e) => {
