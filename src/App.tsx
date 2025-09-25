@@ -424,7 +424,7 @@ function App() {
             {/* Success Story Card */}
             <div className="relative overflow-hidden">
               <img 
-                src="/placeholder_image.jpg" 
+                src="/public/placeholder_image.jpg" 
                 alt="Student working on AI project" 
                 className="w-full h-full object-cover rounded-3xl min-h-[400px]"
               />
