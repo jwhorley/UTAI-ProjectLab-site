@@ -424,8 +424,8 @@ function App() {
             {/* Success Story Card */}
             <div className="relative overflow-hidden">
               <img 
-                src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800&h=600" 
-                alt="girl at a desk" 
+                src="/placeholder_image.jpg" 
+                alt="Woman working on laptop" 
                 className="w-full h-full object-cover rounded-3xl min-h-[400px]"
               />
               
