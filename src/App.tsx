@@ -6,6 +6,7 @@ function App() {
   const [activeFaq, setActiveFaq] = useState(null);
   const [scrollY, setScrollY] = useState(0);
   const [splineKey, setSplineKey] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Spline event handlers
   const onSplineLoad = () => {
@@ -16,11 +17,20 @@ function App() {
   };
 
   useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      const isMobileDevice = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      setIsMobile(isMobileDevice);
+    };
+    
+    checkMobile();
+    
     // Handle scroll for animations
     const handleScroll = () => setScrollY(window.scrollY);
     
     // Handle window resize for Spline responsiveness
     const handleResize = () => {
+      checkMobile();
       // Force Spline to re-render on resize by changing key
       setSplineKey(prev => prev + 1);
     };
@@ -99,27 +109,29 @@ function App() {
       {/* Hero Section */}
       <section id="overview" className="relative py-32">
         {/* Spline Background */}
-        <div className="absolute inset-0 z-10 opacity-70 w-full h-full overflow-hidden spline-container">
-          <Spline
-            key={splineKey}
-            scene="https://prod.spline.design/FgZH78cVMuva2ViP/scene.splinecode"
-            onLoad={onSplineLoad}
-            onError={onSplineError}
-            style={{ 
-              width: '100%', 
-              height: '100%',
-              minHeight: '100vh',
-              minWidth: '100vw',
-              objectFit: 'cover',
-              objectPosition: 'center',
-              transformOrigin: 'center center',
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%) scale(1.1)'
-            }}
-          />
-        </div>
+        {!isMobile && (
+          <div className="absolute inset-0 z-10 opacity-70 w-full h-full overflow-hidden spline-container">
+            <Spline
+              key={splineKey}
+              scene="https://prod.spline.design/FgZH78cVMuva2ViP/scene.splinecode"
+              onLoad={onSplineLoad}
+              onError={onSplineError}
+              style={{ 
+                width: '100%', 
+                height: '100%',
+                minHeight: '100vh',
+                minWidth: '100vw',
+                objectFit: 'cover',
+                objectPosition: 'center',
+                transformOrigin: 'center center',
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%) scale(1.1)'
+              }}
+            />
+          </div>
+        )}
 
         {/* Background */}
         <div className="absolute inset-0 z-0">
