@@ -422,34 +422,12 @@ function App() {
             </div>
 
             {/* Success Story Card */}
-            <div className="relative">
-              <div className="rounded-3xl p-8 backdrop-blur-sm border bg-gradient-to-br from-gray-100 to-gray-200 border-gray-300">
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl flex items-center justify-center">
-                    <span className="text-black font-bold">FS</span>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900">Austin, Tx based FinTech Startup</h3>
-                    <p className="text-sm text-gray-600">Series A Start-up</p>
-                  </div>
-                </div>
-                
-                <blockquote className="italic mb-6 text-lg leading-relaxed text-gray-700">
-                  "The MSAI team delivered a fraud detection model that exceeded our expectations. 
-                  The quality of work was exceptional, and we hired two team members full-time."
-                </blockquote>
-                
-                <div className="grid grid-cols-2 gap-4 pt-6 border-t border-gray-300">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-orange-400 mb-1">2</div>
-                    <div className="text-sm text-gray-600">Full-time Hires</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-amber-400 mb-1">95%</div>
-                    <div className="text-sm text-gray-600">Accuracy Achieved</div>
-                  </div>
-                </div>
-              </div>
+            <div className="relative overflow-hidden">
+              <img 
+                src="/placeholder_image.jpg" 
+                alt="Student working on AI project" 
+                className="w-full h-full object-cover rounded-3xl min-h-[400px]"
+              />
               
               {/* Floating Elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-orange-500/20 to-amber-500/20 rounded-full blur-xl"></div>
